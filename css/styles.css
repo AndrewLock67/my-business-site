@@ -397,6 +397,10 @@ a:hover {
   align-items: center;
 }
 
+.split--top {
+  align-items: start;
+}
+
 .split img {
   width: 100%;
   border-radius: var(--radius);
@@ -655,6 +659,15 @@ textarea:focus-visible {
 
 /* Simple text pages (privacy, terms, 404) */
 .prose {
+  max-width: 44rem;
+}
+
+/* When used on a .container, keep it lined up with the rest of the page */
+.container.prose {
+  max-width: var(--max-width);
+}
+
+.container.prose > * {
   max-width: 44rem;
 }
 
