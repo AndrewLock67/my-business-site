@@ -96,15 +96,22 @@ function setInfoOpen(open) {
 }
 
 infoBtn.addEventListener("click", () => {
+  info.classList.remove("is-dismissed");
   setInfoOpen(!info.classList.contains("is-open"));
 });
 
+// Esc closes the pop-up — even when it's only showing because the mouse is over it
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && info.classList.contains("is-open")) {
+  if (event.key !== "Escape") return;
+  const wasOpen = info.classList.contains("is-open");
+  if (wasOpen || info.matches(":hover")) {
     setInfoOpen(false);
-    infoBtn.focus();
+    info.classList.add("is-dismissed");   // stays hidden until the mouse moves away
+    if (wasOpen) infoBtn.focus();
   }
 });
+
+info.addEventListener("mouseleave", () => info.classList.remove("is-dismissed"));
 
 document.addEventListener("click", (event) => {
   if (!info.contains(event.target)) setInfoOpen(false);

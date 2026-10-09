@@ -578,6 +578,11 @@ a:hover {
   display: block;
 }
 
+/* After Esc, keep it closed until the mouse moves away */
+.info.is-dismissed .info-pop {
+  display: none;
+}
+
 .calc-results {
   display: grid;
   gap: 0.5rem;
