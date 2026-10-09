@@ -1,0 +1,8 @@
+# robots.txt — tells search engines what they may visit.
+# Everything is allowed. (Unfinished policy pages hide themselves with a
+# "noindex" tag inside the page instead of being blocked here.)
+User-agent: *
+Allow: /
+
+# Replace YOUR-DOMAIN.com with the real web address when the site goes live.
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
