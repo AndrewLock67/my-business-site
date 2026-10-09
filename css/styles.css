@@ -425,6 +425,26 @@ a:hover {
   margin-bottom: 0.25rem;
 }
 
+/* Highlighted package ("Best value") — red outline plus a small label */
+.price-card--best {
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px var(--red);   /* thicker outline without shifting the contents */
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  vertical-align: 0.15em;
+}
+
 .price {
   margin: 0.25rem 0 0.75rem;
   font-size: 2rem;
