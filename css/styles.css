@@ -1,0 +1,728 @@
+/* =========================================================
+   EZApps — main stylesheet
+   ---------------------------------------------------------
+   HOW TO EDIT
+   - Colors, fonts and spacing live in the ":root" block
+     right below. Change a value there and it updates
+     everywhere on the site.
+   - Styles are written for phones first. The "@media"
+     blocks near each section add changes for wider screens.
+   ========================================================= */
+
+
+/* ===== 1. SETTINGS (colors, fonts, spacing) ===== */
+:root {
+  /* Brand colors (taken from the logo) */
+  --charcoal: #111827;   /* headings, body text, footer */
+  --red: #C8102E;        /* buttons and small accents only */
+  --red-dark: #A30D25;   /* button hover */
+  --white: #FFFFFF;
+  --gray-bg: #F4F7FB;    /* alternating section background */
+  --muted: #4B5563;      /* secondary text */
+  --border: #E5E7EB;     /* card outlines, dividers */
+
+  /* Fonts */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing and shapes */
+  --max-width: 72rem;    /* widest the content gets */
+  --gutter: 1.25rem;     /* space at the left/right edges */
+  --section-space: clamp(3rem, 8vw, 5.5rem);
+  --radius: 0.75rem;
+}
+
+
+/* ===== 2. FONT FILE ===== */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/inter.woff2") format("woff2");
+}
+
+
+/* ===== 3. BASICS ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  background: var(--white);
+  -webkit-text-size-adjust: 100%;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: clamp(2.1rem, 6vw, 3.25rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.25rem); }
+h3 { font-size: 1.15rem; }
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--red);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--red-dark);
+}
+
+/* Keyboard focus outline — always visible */
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Turn off smooth scrolling and transitions for people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+
+/* ===== 4. LAYOUT HELPERS ===== */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.section--gray {
+  background: var(--gray-bg);
+}
+
+.section-intro {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-intro p,
+.muted {
+  color: var(--muted);
+}
+
+.center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+/* Text only screen readers can hear */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* "Skip to content" link — appears when you press Tab */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--charcoal);
+  color: var(--white);
+  border-radius: var(--radius);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  color: var(--white);
+}
+
+
+/* ===== 5. BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.875rem;           /* easy to tap */
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--red);
+  border-radius: 0.5rem;
+  background: var(--red);
+  color: var(--white);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  background: var(--red-dark);
+  border-color: var(--red-dark);
+  color: var(--white);
+}
+
+/* White button with a dark outline */
+.btn--outline {
+  background: var(--white);
+  border-color: var(--charcoal);
+  color: var(--charcoal);
+}
+
+.btn--outline:hover {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+
+/* ===== 6. HEADER ===== */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.875rem;
+}
+
+.logo img {
+  width: 8.5rem;
+}
+
+.header-cta {
+  padding: 0.5rem 1rem;
+  min-height: 2.75rem;
+  font-size: 0.9375rem;
+}
+
+/* The page links wrap onto their own row on phones */
+.main-nav {
+  order: 3;
+  width: 100%;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--charcoal);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.main-nav a:hover {
+  border-bottom-color: var(--border);
+}
+
+/* Highlights the page you are on */
+.main-nav a[aria-current="page"] {
+  border-bottom-color: var(--red);
+}
+
+@media (min-width: 52em) {
+  .main-nav {
+    order: 0;
+    width: auto;
+    margin-left: auto;
+  }
+  .main-nav ul {
+    gap: 2rem;
+  }
+}
+
+
+/* ===== 7. HERO (top section of each page) ===== */
+.hero {
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+
+.hero-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.hero-tagline {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+@media (min-width: 64em) {
+  .hero-grid {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+
+/* ===== 8. CARDS AND GRIDS ===== */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40em) {
+  .grid--2,
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 64em) {
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+.card {
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+/* Small line icon at the top of a card */
+.card-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  background: var(--gray-bg);
+  color: var(--red);
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ===== 9. NUMBERED STEPS ===== */
+.steps {
+  counter-reset: step;
+}
+
+.step {
+  counter-increment: step;
+}
+
+.step::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--white);
+  font-weight: 700;
+}
+
+
+/* ===== 10. TWO-COLUMN TEXT + IMAGE ===== */
+.split {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.split img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+@media (min-width: 64em) {
+  .split { grid-template-columns: 1fr 1fr; gap: 4rem; }
+}
+
+
+/* ===== 11. PRICING ===== */
+.price-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.price-card h3 {
+  margin-bottom: 0.25rem;
+}
+
+.price {
+  margin: 0.25rem 0 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.price-unit {
+  margin: 0 0 1rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.price-range {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.price-save {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.price-card .btn {
+  margin-top: auto;
+}
+
+/* The price calculator box */
+.calculator {
+  max-width: 40rem;
+  margin: 3rem auto 0;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background: var(--white);
+  border: 2px solid var(--charcoal);
+  border-radius: var(--radius);
+}
+
+.calculator h3 {
+  font-size: 1.35rem;
+}
+
+.calc-results {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem 0;
+  border-block: 1px solid var(--border);
+}
+
+.calc-results dt {
+  color: var(--muted);
+}
+
+.calc-results dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.calc-total dt,
+.calc-total dd {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.calc-message {
+  margin: 0.5rem 0 0;
+  color: var(--red);
+  font-weight: 600;
+}
+
+.calc-note {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.example-list {
+  padding-left: 1.25rem;
+}
+
+
+/* ===== 12. FORMS ===== */
+.field {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.hint {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  width: 100%;
+  min-height: 2.875rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #9CA3AF;   /* darker than --border so the box is easy to see */
+  border-radius: 0.5rem;
+  background: var(--white);
+  color: var(--charcoal);
+  font: inherit;
+}
+
+textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline-offset: 1px;
+  border-color: var(--charcoal);
+}
+
+
+/* ===== 13. FAQ (click-to-open questions) ===== */
+.faq {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.faq details {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The + / – sign on the right */
+.faq summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--red);
+}
+
+.faq details[open] summary::after {
+  content: "–";
+}
+
+.faq .answer {
+  padding-bottom: 1.1rem;
+  color: var(--muted);
+}
+
+.faq .answer ul {
+  margin: 0 0 1rem;
+}
+
+
+/* ===== 14. CALL-TO-ACTION BAND ===== */
+.cta-band {
+  text-align: center;
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.cta-band p {
+  max-width: 36rem;
+  margin-inline: auto;
+  color: #D1D5DB;
+}
+
+.cta-band .btn {
+  margin-top: 0.75rem;
+}
+
+/* Keyboard outline must show on the dark background too */
+.cta-band :focus-visible {
+  outline-color: var(--white);
+}
+
+
+/* ===== 15. SMALL PRINT / NOTICES ===== */
+.disclaimer {
+  padding-block: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+.notice {
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--red);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--gray-bg);
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
+.check-list {
+  padding-left: 1.25rem;
+}
+
+.check-list li {
+  margin-bottom: 0.4rem;
+}
+
+/* Simple text pages (privacy, terms, 404) */
+.prose {
+  max-width: 44rem;
+}
+
+
+/* ===== 16. FOOTER ===== */
+.site-footer {
+  padding-block: 3rem 2rem;
+  background: var(--charcoal);
+  color: #D1D5DB;
+  font-size: 0.9375rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.footer-logo {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--white);
+}
+
+.footer-logo img {
+  width: 7.5rem;
+}
+
+.site-footer h2 {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  color: #D1D5DB;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--white);
+}
+
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #374151;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 40em) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+
+
+/* ===== 17. SMALL HELPERS ===== */
+.space-above {
+  margin-top: 1.5rem;
+}
