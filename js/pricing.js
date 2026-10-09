@@ -85,3 +85,27 @@ document.querySelectorAll("[data-qty]").forEach((button) => {
 });
 
 update();
+
+// (i) pop-up: tap/click or Enter opens and closes it; Esc or clicking elsewhere closes it
+const info    = document.querySelector(".info");
+const infoBtn = document.querySelector(".info-btn");
+
+function setInfoOpen(open) {
+  info.classList.toggle("is-open", open);
+  infoBtn.setAttribute("aria-expanded", String(open));
+}
+
+infoBtn.addEventListener("click", () => {
+  setInfoOpen(!info.classList.contains("is-open"));
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && info.classList.contains("is-open")) {
+    setInfoOpen(false);
+    infoBtn.focus();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (!info.contains(event.target)) setInfoOpen(false);
+});

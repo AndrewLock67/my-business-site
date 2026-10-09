@@ -75,9 +75,10 @@ h1, h2, h3 {
   margin: 0 0 0.75rem;
   font-weight: 700;
   letter-spacing: -0.015em;
+  text-wrap: balance;   /* spreads words evenly across lines (no lone last word) */
 }
 
-h1 { font-size: clamp(2.1rem, 6vw, 3.25rem); }
+h1 { font-size: clamp(2.1rem, 6vw, 2.9rem); }
 h2 { font-size: clamp(1.6rem, 4vw, 2.25rem); }
 h3 { font-size: 1.15rem; }
 
@@ -209,7 +210,6 @@ a:hover {
   width: 100%;
 }
 
-
 /* ===== 6. HEADER ===== */
 .site-header {
   border-bottom: 1px solid var(--border);
@@ -311,7 +311,7 @@ a:hover {
 
 @media (min-width: 64em) {
   .hero-grid {
-    grid-template-columns: 1.05fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 3.5rem;
   }
 }
@@ -426,15 +426,16 @@ a:hover {
 }
 
 .price {
-  margin: 0.25rem 0 0;
+  margin: 0.25rem 0 0.75rem;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.1;
 }
 
+/* "/ application" sits on the same line as the price */
 .price-unit {
-  margin: 0 0 1rem;
   font-size: 0.9375rem;
+  font-weight: 400;
   color: var(--muted);
 }
 
@@ -445,6 +446,22 @@ a:hover {
 
 .price-card .btn {
   margin-top: auto;
+}
+
+/* Package cards on the pricing page: each row (name, price, range,
+   description, button) lines up across all four cards, even when
+   one card's text wraps onto more lines than the others. */
+@supports (grid-template-rows: subgrid) {
+  .price-grid .price-card {
+    display: grid;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+  .price-grid .price-card .btn {
+    margin-top: 0;
+    align-self: end;
+  }
 }
 
 /* The price calculator box */
@@ -459,6 +476,86 @@ a:hover {
 
 .calculator h3 {
   font-size: 1.35rem;
+}
+
+/* "How is my total calculated? (i)" — bottom right of the calculator.
+   The pop-up opens upward from it. */
+.info {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.info-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;          /* big enough to tap */
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.info-btn:hover,
+.info.is-open .info-btn {
+  color: var(--charcoal);
+}
+
+.info-label {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 0.2em;
+}
+
+/* The round (i) */
+.info-btn span[aria-hidden] {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font: italic 700 0.875rem/1 Georgia, serif;
+}
+
+.info-btn:hover span[aria-hidden],
+.info.is-open .info-btn span[aria-hidden] {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+
+.info-pop {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 10;
+  width: min(26rem, 100%);
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.15);
+  font-size: 0.9375rem;
+  text-align: left;
+}
+
+.info-pop p:last-child {
+  margin-bottom: 0;
+}
+
+/* Show the pop-up on mouse hover, or after a tap/click/keyboard press */
+.info-btn:hover + .info-pop,
+.info-pop:hover,
+.info.is-open .info-pop {
+  display: block;
 }
 
 .calc-results {
