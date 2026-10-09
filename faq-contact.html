@@ -139,33 +139,54 @@
           <p><a href="mailto:hello@example.com">hello@example.com</a></p>
         </div>
 
-        <!-- TODO: a website can't send email on its own. Sign up for a form service
-             (for example Formspree.io) and paste the address it gives you into action="..." below. -->
-        <form class="card" action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-          <p class="muted">All fields are required.</p>
-          <div class="field">
-            <label for="name">Name</label>
-            <span class="hint" id="name-hint">Tell us who we're speaking with.</span>
-            <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-hint">
+        <!-- ===== CONTACT FORM (sent by Web3Forms, web3forms.com) =====
+             Messages are emailed to the address linked to the access key below.
+             The access key is meant to be public — it only lets people SEND to you. -->
+        <div class="card">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="879d6ad2-b53c-49a3-8fc7-3af688bc264d">
+            <input type="hidden" name="subject" value="New message from the EZApps website">
+            <input type="hidden" name="from_name" value="EZApps Website">
+
+            <!-- Spam trap: hidden from people, but spam bots tick it and get rejected. Don't remove. -->
+            <input type="checkbox" name="botcheck" class="bot-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <p class="muted">Phone is optional. All other fields are required.</p>
+            <div class="field">
+              <label for="name">Name</label>
+              <span class="hint" id="name-hint">Tell us who we're speaking with.</span>
+              <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-hint">
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <span class="hint" id="email-hint">Give us an address where we can reach you.</span>
+              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-hint">
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <span class="hint" id="phone-hint">Only if you'd like us to call you.</span>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" aria-describedby="phone-hint">
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <span class="hint" id="message-hint">Share your question or the support you need.</span>
+              <textarea id="message" name="message" required aria-describedby="message-hint"></textarea>
+            </div>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button class="btn btn--full" type="submit">Send Message</button>
+            <p class="calc-note">Please provide accurate contact details so we can respond to your inquiry.</p>
+          </form>
+
+          <!-- Thank-you message: shown in place of the form after a message is sent -->
+          <div class="form-success" id="form-success" tabindex="-1" hidden>
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3 id="success-title">Thank you! Your message is on its way.</h3>
+            <p class="muted">We've received your message and will reply by email as soon as we can. In the meantime, the answers above may help.</p>
+            <button class="btn btn--outline" type="button" id="send-another">Send another message</button>
           </div>
-          <div class="field">
-            <label for="email">Email address</label>
-            <span class="hint" id="email-hint">Give us an address where we can reach you.</span>
-            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-hint">
-          </div>
-          <div class="field">
-            <label for="subject">Subject</label>
-            <span class="hint" id="subject-hint">Tell us what your message is about.</span>
-            <input id="subject" name="subject" type="text" required aria-describedby="subject-hint">
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <span class="hint" id="message-hint">Share your question or the support you need.</span>
-            <textarea id="message" name="message" required aria-describedby="message-hint"></textarea>
-          </div>
-          <button class="btn btn--full" type="submit">Send Message</button>
-          <p class="calc-note">Please provide accurate contact details so we can respond to your inquiry.</p>
-        </form>
+        </div>
       </div>
     </section>
 
@@ -232,5 +253,6 @@
   </footer>
   <!-- ===== FOOTER END ===== -->
 
+  <script src="js/contact.js" defer></script>
 </body>
 </html>
