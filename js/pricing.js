@@ -11,9 +11,9 @@
 
 const PACKAGES = [
   { name: "Starter",     from: 1,  price: 5.00 },
-  { name: "Value",       from: 10, price: 4.75 },
-  { name: "Growth",      from: 25, price: 4.50 },
-  { name: "Career Plus", from: 79, price: 4.25 }
+  { name: "Value",       from: 11, price: 4.75 },
+  { name: "Growth",      from: 26, price: 4.50 },
+  { name: "Pro",         from: 76, price: 4.25 }
 ];
 
 const MAX_APPLICATIONS = 500; // largest order the calculator accepts
