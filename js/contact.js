@@ -1,5 +1,5 @@
 /* =========================================================
-   EZApps — contact form (FAQ & Contact page only)
+   JAO — contact form (FAQ & Contact page only)
    ---------------------------------------------------------
    Sends the form to Web3Forms in the background, then swaps
    the form for a thank-you message without leaving the page.

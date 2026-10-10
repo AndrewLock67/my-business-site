@@ -1,5 +1,5 @@
 /* =========================================================
-   EZApps — price calculator (Services & Pricing page only)
+   JAO — price calculator (Services & Pricing page only)
    ---------------------------------------------------------
    HOW TO EDIT PRICES
    Change the list below. "from" is the smallest quantity
