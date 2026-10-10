@@ -409,6 +409,11 @@ a:hover {
   counter-increment: step;
 }
 
+/* Even out line endings so no word sits alone on the last line */
+.step p {
+  text-wrap: pretty;
+}
+
 .step::before {
   content: counter(step);
   display: grid;
