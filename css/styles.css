@@ -158,10 +158,16 @@ a:hover {
   background: var(--gray-bg);
 }
 
-/* Faint wavy lines behind a white section. Add class="section--waves"
-   to a <section> to use it (home page: How It Works, Support). */
-.section--waves {
-  background: url("../assets/img/waves.svg") center / cover no-repeat;
+/* Faint wavy lines running behind the whole page (home page only:
+   <main class="page-waves">). Grey and navy sections cover them, so the
+   white sections show different stretches of one continuous flow.
+   The hero gets a plain white background so it stays clean. */
+.page-waves {
+  background: url("../assets/img/waves.svg") center top / max(100%, 1440px) auto repeat-y;
+}
+
+.page-waves .hero {
+  background: var(--white);
 }
 
 .section-intro {
