@@ -175,6 +175,8 @@ a:hover {
   border-bottom: 1px solid #CBD5E1;
 }
 
+/* Add class="no-line" to a section heading to leave out the line */
+.section:not(.cta-band) h2.no-line,
 .section:not(.cta-band) .policy h2 {
   padding-bottom: 0;
   margin-bottom: 0.75rem;
