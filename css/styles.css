@@ -409,6 +409,13 @@ a:hover {
   counter-increment: step;
 }
 
+/* A second topic inside the same section, set apart with space and a thin line */
+.subsection {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #CBD5E1;   /* a shade darker than --border so it shows on soft gray */
+}
+
 /* Even out line endings so no word sits alone on the last line */
 .step p {
   text-wrap: pretty;
