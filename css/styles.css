@@ -859,10 +859,6 @@ textarea:focus-visible {
 
 
 /* ===== 13. FAQ (click-to-open questions) ===== */
-.faq {
-  max-width: 48rem;
-}
-
 .faq details {
   border-bottom: 1px solid var(--border);
 }
