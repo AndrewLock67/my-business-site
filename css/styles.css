@@ -859,6 +859,12 @@ legend {
   .form-grid--even3 { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* Red asterisk on required fields */
+.req {
+  color: var(--error);
+  font-weight: 700;
+}
+
 /* A label for a group of boxes (looks like a normal label) */
 .label {
   display: block;

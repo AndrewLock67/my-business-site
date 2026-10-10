@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
 <body>
 
@@ -82,7 +82,7 @@
       <div class="container">
         <div class="section-intro">
           <h2 id="details-title">Send Your Details</h2>
-          <p>Tell us about yourself and your job goals so we can get started. All fields are required unless marked optional.</p>
+          <p>Tell us about yourself and your job goals so we can get started. Fields marked with a red asterisk (<span class="req">*</span>) are required.</p>
         </div>
 
         <div class="card onboarding">
@@ -102,17 +102,17 @@
               <legend>Your Information</legend>
               <div class="form-grid">
                 <div class="field">
-                  <label for="ob-name">Full name</label>
+                  <label for="ob-name">Full name <span class="req" aria-hidden="true">*</span></label>
                   <input id="ob-name" name="Full name" type="text" autocomplete="name" required>
                 </div>
                 <div class="field">
-                  <label for="ob-email">Email address</label>
+                  <label for="ob-email">Email address <span class="req" aria-hidden="true">*</span></label>
                   <span class="hint" id="ob-email-hint">Use the email from checkout so we can match your order.</span>
                   <input id="ob-email" name="email" type="email" autocomplete="email" required aria-describedby="ob-email-hint">
                 </div>
               </div>
               <div class="field">
-                <span class="label" id="ob-phone-label">Phone</span>
+                <span class="label" id="ob-phone-label">Phone <span class="req" aria-hidden="true">*</span></span>
                 <div class="phone-row" role="group" aria-labelledby="ob-phone-label">
                   <select id="ob-phone-code" name="Phone country code" aria-label="Country code" required>
                     <option value="+1 (United States)" selected>United States (+1)</option>
@@ -241,7 +241,7 @@
               </div>
               <div class="form-grid">
                 <div class="field">
-                  <label for="ob-country">Country</label>
+                  <label for="ob-country">Country <span class="req" aria-hidden="true">*</span></label>
                   <select id="ob-country" name="Country" autocomplete="country-name" required data-other="ob-country-other-field">
                     <option selected>United States</option>
                     <option>Afghanistan</option>
@@ -366,22 +366,22 @@
                   </select>
                 </div>
                 <div class="field">
-                  <label for="ob-street">Street address</label>
+                  <label for="ob-street">Street address <span class="req" aria-hidden="true">*</span></label>
                   <input id="ob-street" name="Street address" type="text" autocomplete="street-address" required>
                 </div>
               </div>
               <!-- Shown only when "Other" is chosen as the country -->
               <div class="field other-field" id="ob-country-other-field">
-                <label for="ob-country-other">Country name</label>
+                <label for="ob-country-other">Country name <span class="req" aria-hidden="true">*</span></label>
                 <input id="ob-country-other" name="Country (details)" type="text">
               </div>
               <div class="form-grid form-grid--3">
                 <div class="field">
-                  <label for="ob-city">City</label>
+                  <label for="ob-city">City <span class="req" aria-hidden="true">*</span></label>
                   <input id="ob-city" name="City" type="text" autocomplete="address-level2" required>
                 </div>
                 <div class="field" id="ob-state-field">
-                  <label for="ob-state">State</label>
+                  <label for="ob-state">State <span class="req" aria-hidden="true">*</span></label>
                   <select id="ob-state" name="State" autocomplete="address-level1" required>
                     <option value="">Choose a state</option>
                     <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
@@ -400,11 +400,11 @@
                   </select>
                 </div>
                 <div class="field" id="ob-region-field" hidden>
-                  <label for="ob-region">State / province / region</label>
+                  <label for="ob-region">State / province / region <span class="req" aria-hidden="true">*</span></label>
                   <input id="ob-region" name="State / province / region" type="text" autocomplete="address-level1" required disabled>
                 </div>
                 <div class="field">
-                  <label for="ob-zip" id="ob-zip-label">ZIP code</label>
+                  <label for="ob-zip"><span id="ob-zip-label">ZIP code</span> <span class="req" aria-hidden="true">*</span></label>
                   <input id="ob-zip" name="ZIP / postal code" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}(-[0-9]{4})?" required>
                 </div>
               </div>
@@ -414,7 +414,7 @@
             <fieldset>
               <legend>Your Documents</legend>
               <div class="field">
-                <label for="ob-files">Resume and other documents</label>
+                <label for="ob-files">Resume and other documents <span class="req" aria-hidden="true">*</span></label>
                 <span class="hint" id="ob-files-hint">Your resume is required. You can also add a cover letter, certificates or transcripts. PDF or Word files, up to 5 MB in total.</span>
                 <div class="dropzone" id="dropzone">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
@@ -436,17 +436,17 @@
                 <h3 class="entry-heading">Education 1</h3>
                 <div class="form-grid">
                   <div class="field">
-                    <label for="edu1-school">School</label>
+                    <label for="edu1-school">School <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu1-school" name="Education 1 - School" type="text" required>
                   </div>
                   <div class="field">
-                    <label for="edu1-location">Location</label>
+                    <label for="edu1-location">Location <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu1-location" name="Education 1 - Location" type="text" placeholder="City, state or country" required>
                   </div>
                 </div>
                 <div class="form-grid form-grid--even3">
                   <div class="field">
-                    <label for="edu1-degree">Degree</label>
+                    <label for="edu1-degree">Degree <span class="req" aria-hidden="true">*</span></label>
                     <select id="edu1-degree" name="Education 1 - Degree" required>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
@@ -458,11 +458,11 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="edu1-start">Start date</label>
+                    <label for="edu1-start">Start date <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu1-start" name="Education 1 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required>
                   </div>
                   <div class="field">
-                    <label for="edu1-end">End date <span class="optional">(or expected)</span></label>
+                    <label for="edu1-end">End date <span class="optional">(or expected)</span> <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu1-end" name="Education 1 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required>
                   </div>
                 </div>
@@ -472,17 +472,17 @@
                 <h3 class="entry-heading">Education 2</h3>
                 <div class="form-grid">
                   <div class="field">
-                    <label for="edu2-school">School</label>
+                    <label for="edu2-school">School <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu2-school" name="Education 2 - School" type="text" required disabled>
                   </div>
                   <div class="field">
-                    <label for="edu2-location">Location</label>
+                    <label for="edu2-location">Location <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu2-location" name="Education 2 - Location" type="text" placeholder="City, state or country" required disabled>
                   </div>
                 </div>
                 <div class="form-grid form-grid--even3">
                   <div class="field">
-                    <label for="edu2-degree">Degree</label>
+                    <label for="edu2-degree">Degree <span class="req" aria-hidden="true">*</span></label>
                     <select id="edu2-degree" name="Education 2 - Degree" required disabled>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
@@ -494,11 +494,11 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="edu2-start">Start date</label>
+                    <label for="edu2-start">Start date <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu2-start" name="Education 2 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required disabled>
                   </div>
                   <div class="field">
-                    <label for="edu2-end">End date <span class="optional">(or expected)</span></label>
+                    <label for="edu2-end">End date <span class="optional">(or expected)</span> <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu2-end" name="Education 2 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required disabled>
                   </div>
                 </div>
@@ -509,17 +509,17 @@
                 <h3 class="entry-heading">Education 3</h3>
                 <div class="form-grid">
                   <div class="field">
-                    <label for="edu3-school">School</label>
+                    <label for="edu3-school">School <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu3-school" name="Education 3 - School" type="text" required disabled>
                   </div>
                   <div class="field">
-                    <label for="edu3-location">Location</label>
+                    <label for="edu3-location">Location <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu3-location" name="Education 3 - Location" type="text" placeholder="City, state or country" required disabled>
                   </div>
                 </div>
                 <div class="form-grid form-grid--even3">
                   <div class="field">
-                    <label for="edu3-degree">Degree</label>
+                    <label for="edu3-degree">Degree <span class="req" aria-hidden="true">*</span></label>
                     <select id="edu3-degree" name="Education 3 - Degree" required disabled>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
@@ -531,11 +531,11 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="edu3-start">Start date</label>
+                    <label for="edu3-start">Start date <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu3-start" name="Education 3 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required disabled>
                   </div>
                   <div class="field">
-                    <label for="edu3-end">End date <span class="optional">(or expected)</span></label>
+                    <label for="edu3-end">End date <span class="optional">(or expected)</span> <span class="req" aria-hidden="true">*</span></label>
                     <input id="edu3-end" name="Education 3 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required disabled>
                   </div>
                 </div>
@@ -658,7 +658,7 @@
               <legend>Your Job Goals</legend>
               <div class="form-grid">
                 <div class="field">
-                  <label for="ob-role">Preferred role</label>
+                  <label for="ob-role">Preferred role <span class="req" aria-hidden="true">*</span></label>
                   <select id="ob-role" name="Preferred role" required data-other="ob-role-other-field">
                     <option value="">Choose a role type</option>
                     <option>Administrative and office support</option>
@@ -679,7 +679,7 @@
                   </select>
                 </div>
                 <div class="field">
-                  <label for="ob-industry">Preferred industry</label>
+                  <label for="ob-industry">Preferred industry <span class="req" aria-hidden="true">*</span></label>
                   <select id="ob-industry" name="Preferred industry" required data-other="ob-industry-other-field">
                     <option value="">Choose an industry</option>
                     <option>Technology</option>
@@ -702,21 +702,21 @@
               </div>
               <!-- "Tell us more" boxes: shown only when "Other" is chosen above (see js/onboarding.js) -->
               <div class="field other-field" id="ob-role-other-field">
-                <label for="ob-role-other">Tell us more about the role you want</label>
+                <label for="ob-role-other">Tell us more about the role you want <span class="req" aria-hidden="true">*</span></label>
                 <input id="ob-role-other" name="Preferred role (details)" type="text">
               </div>
               <div class="field other-field" id="ob-industry-other-field">
-                <label for="ob-industry-other">Tell us more about the industry you want</label>
+                <label for="ob-industry-other">Tell us more about the industry you want <span class="req" aria-hidden="true">*</span></label>
                 <input id="ob-industry-other" name="Preferred industry (details)" type="text">
               </div>
-              <div class="form-grid">
+              <div class="form-grid form-grid--even3">
                 <div class="field">
-                  <label for="ob-locations">Preferred locations</label>
+                  <label for="ob-locations">Preferred locations <span class="req" aria-hidden="true">*</span></label>
                   <span class="hint" id="ob-locations-hint">Cities, states, or "anywhere".</span>
                   <input id="ob-locations" name="Preferred locations" type="text" required aria-describedby="ob-locations-hint">
                 </div>
                 <div class="field">
-                  <label for="ob-arrangement">Work arrangement</label>
+                  <label for="ob-arrangement">Work arrangement <span class="req" aria-hidden="true">*</span></label>
                   <span class="hint" id="ob-arrangement-hint">Where you'd like to work.</span>
                   <select id="ob-arrangement" name="Work arrangement" required aria-describedby="ob-arrangement-hint">
                     <option value="">Choose one</option>
@@ -724,6 +724,17 @@
                     <option>Remote</option>
                     <option>Hybrid</option>
                     <option>On-site</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-employment">Employment type <span class="req" aria-hidden="true">*</span></label>
+                  <span class="hint" id="ob-employment-hint">The kind of role you want.</span>
+                  <select id="ob-employment" name="Employment type" required aria-describedby="ob-employment-hint">
+                    <option value="">Choose one</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Contract</option>
+                    <option>Open to any</option>
                   </select>
                 </div>
               </div>
@@ -737,7 +748,7 @@
             <!-- ----- 6. Authorization (required by our Terms of Service) ----- -->
             <div class="field check-field">
               <input id="ob-authorize" name="Authorization" type="checkbox" value="Yes, I authorize JAO to submit job applications on my behalf" required>
-              <label for="ob-authorize">I authorize Job Application Office (JAO) to prepare and submit job applications on my behalf, and I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</label>
+              <label for="ob-authorize">I authorize Job Application Office (JAO) to prepare and submit job applications on my behalf, and I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>. <span class="req" aria-hidden="true">*</span></label>
             </div>
 
             <p class="form-error" id="ob-error" role="alert" hidden></p>
