@@ -913,6 +913,42 @@ legend {
   display: none;
 }
 
+/* Instruction line under a group title */
+fieldset > .hint {
+  margin: -0.5rem 0 1.25rem;
+}
+
+/* Work experience boxes (thank-you page) */
+.job + .job {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+}
+
+.job-heading {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.add-job {
+  margin-bottom: 1.25rem;
+}
+
+/* Small text-style button ("Remove Work Experience 2") */
+.link-btn {
+  min-height: 44px;
+  margin-bottom: 1rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--navy);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+}
+
 /* Checkbox with its sentence next to it */
 .check-field {
   display: flex;

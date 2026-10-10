@@ -41,6 +41,44 @@ form.querySelectorAll("select[data-other]").forEach((select) => {
 });
 
 
+/* ----- Work experience: "Add another" shows the next box (up to 3) ----- */
+const jobs   = [1, 2, 3].map((n) => document.getElementById("job-" + n));
+const addJob = document.getElementById("add-job");
+let jobCount = 1;   // how many work experience boxes are showing
+
+function showJobs() {
+  jobs.forEach((job, i) => {
+    const showing = i < jobCount;
+    job.hidden = !showing;
+    // Hidden boxes are switched off, so they're never sent or checked
+    job.querySelectorAll("input, textarea").forEach((field) => (field.disabled = !showing));
+    // Only the last box can be removed (box 1 always stays)
+    const remove = job.querySelector(".job-remove");
+    if (remove) remove.hidden = i !== jobCount - 1;
+  });
+  addJob.hidden = jobCount >= jobs.length;
+}
+
+addJob.addEventListener("click", () => {
+  jobCount++;
+  showJobs();
+  jobs[jobCount - 1].querySelector("input").focus();
+});
+
+jobs.forEach((job) => {
+  const remove = job.querySelector(".job-remove");
+  if (!remove) return;
+  remove.addEventListener("click", () => {
+    job.querySelectorAll("input, textarea").forEach((field) => (field.value = ""));
+    jobCount--;
+    showJobs();
+    addJob.hidden ? jobs[jobCount - 1].querySelector("input").focus() : addJob.focus();
+  });
+});
+
+showJobs();
+
+
 /* ----- File upload box ----- */
 const totalMB = (files) => [...files].reduce((sum, f) => sum + f.size, 0) / (1024 * 1024);
 

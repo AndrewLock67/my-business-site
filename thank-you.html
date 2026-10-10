@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
 
@@ -162,31 +162,131 @@
               </div>
             </fieldset>
 
-            <!-- ----- 3. Experience ----- -->
+            <!-- ----- 3. Education ----- -->
             <fieldset>
-              <legend>Your Experience</legend>
-              <div class="field">
-                <label for="ob-education">Highest level of education</label>
-                <select id="ob-education" name="Education" required>
-                  <option value="">Choose one</option>
-                  <option>High school diploma or GED</option>
-                  <option>Some college</option>
-                  <option>Trade or vocational certificate</option>
-                  <option>Associate degree</option>
-                  <option>Bachelor's degree</option>
-                  <option>Master's degree</option>
-                  <option>Doctorate or professional degree</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="ob-experience">Work experience</label>
-                <span class="hint" id="ob-experience-hint">Briefly describe your recent jobs, skills and anything we should highlight.</span>
-                <textarea id="ob-experience" name="Work experience" required aria-describedby="ob-experience-hint"></textarea>
+              <legend>Your Education</legend>
+              <p class="hint">Enter your highest or most recent education.</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="ob-school">School</label>
+                  <input id="ob-school" name="School" type="text" required>
+                </div>
+                <div class="field">
+                  <label for="ob-degree">Degree</label>
+                  <select id="ob-degree" name="Degree" required>
+                    <option value="">Choose a degree</option>
+                    <option>High School</option>
+                    <option>Associate's</option>
+                    <option>Bachelor's</option>
+                    <option>Master's</option>
+                    <option>PhD</option>
+                    <option>Professional</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-school-start">Start date</label>
+                  <span class="hint" id="ob-school-start-hint">MM/YYYY</span>
+                  <input id="ob-school-start" name="School start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required aria-describedby="ob-school-start-hint">
+                </div>
+                <div class="field">
+                  <label for="ob-school-end">End date</label>
+                  <span class="hint" id="ob-school-end-hint">MM/YYYY, or your expected graduation date</span>
+                  <input id="ob-school-end" name="School end date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required aria-describedby="ob-school-end-hint">
+                </div>
               </div>
             </fieldset>
 
-            <!-- ----- 4. Job goals ----- -->
+            <!-- ----- 4. Work experience =====
+                 Work Experience 2 and 3 start hidden. The "Add another work experience"
+                 button shows them one at a time (up to 3), see js/onboarding.js. -->
+            <fieldset>
+              <legend>Your Work Experience</legend>
+              <p class="hint">Start with your most recent job. Leave this section blank if you don't have work experience yet.</p>
+
+              <div class="job" id="job-1">
+                <h3 class="job-heading">Work Experience 1</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="job1-title">Job title</label>
+                    <input id="job1-title" name="Job 1 - Title" type="text">
+                  </div>
+                  <div class="field">
+                    <label for="job1-employer">Employer</label>
+                    <input id="job1-employer" name="Job 1 - Employer" type="text">
+                  </div>
+                  <div class="field">
+                    <label for="job1-start">Start date</label>
+                    <input id="job1-start" name="Job 1 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY">
+                  </div>
+                  <div class="field">
+                    <label for="job1-end">End date</label>
+                    <input id="job1-end" name="Job 1 - End date" type="text" placeholder="MM/YYYY or Present" pattern="(0[1-9]|1[0-2])/[0-9]{4}|[Pp]resent" title="Use the format MM/YYYY, or type Present">
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="job1-duties">Main duties and achievements</label>
+                  <textarea id="job1-duties" name="Job 1 - Duties"></textarea>
+                </div>
+              </div>
+
+              <div class="job" id="job-2" hidden>
+                <h3 class="job-heading">Work Experience 2</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="job2-title">Job title</label>
+                    <input id="job2-title" name="Job 2 - Title" type="text" disabled>
+                  </div>
+                  <div class="field">
+                    <label for="job2-employer">Employer</label>
+                    <input id="job2-employer" name="Job 2 - Employer" type="text" disabled>
+                  </div>
+                  <div class="field">
+                    <label for="job2-start">Start date</label>
+                    <input id="job2-start" name="Job 2 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY" disabled>
+                  </div>
+                  <div class="field">
+                    <label for="job2-end">End date</label>
+                    <input id="job2-end" name="Job 2 - End date" type="text" placeholder="MM/YYYY or Present" pattern="(0[1-9]|1[0-2])/[0-9]{4}|[Pp]resent" title="Use the format MM/YYYY, or type Present" disabled>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="job2-duties">Main duties and achievements</label>
+                  <textarea id="job2-duties" name="Job 2 - Duties" disabled></textarea>
+                </div>
+                <button class="link-btn job-remove" type="button">Remove Work Experience 2</button>
+              </div>
+
+              <div class="job" id="job-3" hidden>
+                <h3 class="job-heading">Work Experience 3</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="job3-title">Job title</label>
+                    <input id="job3-title" name="Job 3 - Title" type="text" disabled>
+                  </div>
+                  <div class="field">
+                    <label for="job3-employer">Employer</label>
+                    <input id="job3-employer" name="Job 3 - Employer" type="text" disabled>
+                  </div>
+                  <div class="field">
+                    <label for="job3-start">Start date</label>
+                    <input id="job3-start" name="Job 3 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY" disabled>
+                  </div>
+                  <div class="field">
+                    <label for="job3-end">End date</label>
+                    <input id="job3-end" name="Job 3 - End date" type="text" placeholder="MM/YYYY or Present" pattern="(0[1-9]|1[0-2])/[0-9]{4}|[Pp]resent" title="Use the format MM/YYYY, or type Present" disabled>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="job3-duties">Main duties and achievements</label>
+                  <textarea id="job3-duties" name="Job 3 - Duties" disabled></textarea>
+                </div>
+                <button class="link-btn job-remove" type="button">Remove Work Experience 3</button>
+              </div>
+
+              <button class="btn btn--outline add-job" id="add-job" type="button">+ Add another work experience</button>
+            </fieldset>
+
+            <!-- ----- 5. Job goals ----- -->
             <fieldset>
               <legend>Your Job Goals</legend>
               <div class="form-grid">
@@ -267,7 +367,7 @@
               </div>
             </fieldset>
 
-            <!-- ----- 5. Authorization (required by our Terms of Service) ----- -->
+            <!-- ----- 6. Authorization (required by our Terms of Service) ----- -->
             <div class="field check-field">
               <input id="ob-authorize" name="Authorization" type="checkbox" value="Yes, I authorize JAO to submit job applications on my behalf" required>
               <label for="ob-authorize">I authorize Job Application Office (JAO) to prepare and submit job applications on my behalf, and I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</label>
@@ -346,7 +446,7 @@
   </footer>
   <!-- ===== FOOTER END ===== -->
 
-  <script src="js/onboarding.js?v=2" defer></script>
+  <script src="js/onboarding.js?v=3" defer></script>
 
 </body>
 </html>
