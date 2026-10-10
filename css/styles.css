@@ -14,8 +14,9 @@
 :root {
   /* Brand colors (taken from the logo) */
   --charcoal: #111827;   /* headings, body text, footer */
-  --red: #C8102E;        /* buttons and small accents only */
-  --red-dark: #A30D25;   /* button hover */
+  --navy: #0B2545;       /* JAO logo color: buttons, links, accents, dark sections */
+  --navy-hover: #1D4E89; /* button and link hover */
+  --error: #C8102E;      /* error messages only */
   --white: #FFFFFF;
   --gray-bg: #EAEFF5;    /* alternating section background */
   --muted: #4B5563;      /* secondary text */
@@ -87,17 +88,17 @@ p {
 }
 
 a {
-  color: var(--red);
+  color: var(--navy);
   text-underline-offset: 0.15em;
 }
 
 a:hover {
-  color: var(--red-dark);
+  color: var(--navy-hover);
 }
 
 /* Keyboard focus outline — always visible */
 :focus-visible {
-  outline: 3px solid var(--red);
+  outline: 3px solid var(--navy);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -176,9 +177,9 @@ a:hover {
   gap: 0.5rem;
   min-height: 2.875rem;           /* easy to tap */
   padding: 0.75rem 1.5rem;
-  border: 2px solid var(--red);
+  border: 2px solid var(--navy);
   border-radius: 0.5rem;
-  background: var(--red);
+  background: var(--navy);
   color: var(--white);
   font: inherit;
   font-weight: 600;
@@ -188,21 +189,21 @@ a:hover {
 }
 
 .btn:hover {
-  background: var(--red-dark);
-  border-color: var(--red-dark);
+  background: var(--navy-hover);
+  border-color: var(--navy-hover);
   color: var(--white);
 }
 
-/* White button with a dark outline */
+/* White button with a navy outline */
 .btn--outline {
   background: var(--white);
-  border-color: var(--charcoal);
-  color: var(--charcoal);
+  border-color: var(--navy);
+  color: var(--navy);
 }
 
 .btn--outline:hover {
-  background: var(--charcoal);
-  border-color: var(--charcoal);
+  background: var(--navy);
+  border-color: var(--navy);
   color: var(--white);
 }
 
@@ -266,7 +267,7 @@ a:hover {
 
 /* Highlights the page you are on */
 .main-nav a[aria-current="page"] {
-  border-bottom-color: var(--red);
+  border-bottom-color: var(--navy);
 }
 
 /* Phones: keep the header to two short rows (logo + button, then the 3 links) */
@@ -390,7 +391,7 @@ a:hover {
   padding: 0.6rem;
   border-radius: 0.5rem;
   background: var(--gray-bg);
-  color: var(--red);
+  color: var(--navy);
 }
 
 .card-icon svg {
@@ -416,7 +417,7 @@ a:hover {
   height: 2.5rem;
   margin-bottom: 1rem;
   border-radius: 50%;
-  background: var(--red);
+  background: var(--navy);
   color: var(--white);
   font-weight: 700;
 }
@@ -459,8 +460,8 @@ a:hover {
 
 /* Highlighted package ("Best value") — red outline plus a small label */
 .price-card--best {
-  border-color: var(--red);
-  box-shadow: 0 0 0 1px var(--red);   /* thicker outline without shifting the contents */
+  border-color: var(--navy);
+  box-shadow: 0 0 0 1px var(--navy);   /* thicker outline without shifting the contents */
 }
 
 .badge {
@@ -468,7 +469,7 @@ a:hover {
   margin-left: 0.4rem;
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
-  background: var(--red);
+  background: var(--navy);
   color: var(--white);
   font-size: 0.75rem;
   font-weight: 600;
@@ -522,7 +523,7 @@ a:hover {
   margin: 3rem auto 0;
   padding: clamp(1.25rem, 4vw, 2rem);
   background: var(--white);
-  border: 2px solid var(--charcoal);
+  border: 2px solid var(--navy);
   border-radius: var(--radius);
 }
 
@@ -578,8 +579,8 @@ a:hover {
 
 .info-btn:hover span[aria-hidden],
 .info.is-open .info-btn span[aria-hidden] {
-  background: var(--charcoal);
-  border-color: var(--charcoal);
+  background: var(--navy);
+  border-color: var(--navy);
   color: var(--white);
 }
 
@@ -655,7 +656,7 @@ a:hover {
 
 .calc-message {
   margin: 0.5rem 0 0;
-  color: var(--red);
+  color: var(--error);
   font-weight: 600;
 }
 
@@ -730,7 +731,7 @@ textarea:focus-visible {
 .form-error {
   margin: 0 0 1rem;
   padding: 0.75rem 1rem;
-  border-left: 4px solid var(--red);
+  border-left: 4px solid var(--error);
   background: #FDECEE;
   color: var(--charcoal);
   font-weight: 500;
@@ -758,7 +759,7 @@ textarea:focus-visible {
   padding: 0.85rem;
   border-radius: 50%;
   background: var(--gray-bg);
-  color: var(--red);
+  color: var(--navy);
 }
 
 
@@ -794,7 +795,7 @@ textarea:focus-visible {
   flex-shrink: 0;
   font-size: 1.5rem;
   line-height: 1;
-  color: var(--red);
+  color: var(--navy);
 }
 
 .faq details[open] summary::after {
@@ -814,7 +815,7 @@ textarea:focus-visible {
 /* ===== 14. CALL-TO-ACTION BAND ===== */
 .cta-band {
   text-align: center;
-  background: var(--charcoal);
+  background: var(--navy);
   color: var(--white);
 }
 
@@ -824,8 +825,18 @@ textarea:focus-visible {
   color: #D1D5DB;
 }
 
+/* On the navy band, buttons are white with navy text so they stand out */
 .cta-band .btn {
   margin-top: 0.75rem;
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--navy);
+}
+
+.cta-band .btn:hover {
+  background: #DCE6F2;
+  border-color: #DCE6F2;
+  color: var(--navy);
 }
 
 /* Keyboard outline must show on the dark background too */
@@ -844,7 +855,7 @@ textarea:focus-visible {
 
 .notice {
   padding: 1.25rem 1.5rem;
-  border-left: 4px solid var(--red);
+  border-left: 4px solid var(--navy);
   border-radius: 0 var(--radius) var(--radius) 0;
   background: var(--gray-bg);
 }
@@ -937,7 +948,7 @@ mark.fill {
 /* ===== 16. FOOTER ===== */
 .site-footer {
   padding-block: 3rem 2rem;
-  background: var(--charcoal);
+  background: var(--navy);
   color: #D1D5DB;
   font-size: 0.9375rem;
 }
@@ -992,7 +1003,7 @@ mark.fill {
 .footer-bottom {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #374151;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
   font-size: 0.875rem;
 }
 
