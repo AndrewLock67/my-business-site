@@ -118,7 +118,8 @@ p {
 
 a {
   color: var(--navy);
-  text-underline-offset: 0.15em;
+  text-underline-offset: 0.3em;   /* underline sits below the letters (CDC style) */
+  text-decoration-thickness: 1px;
 }
 
 a:hover {
