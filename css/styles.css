@@ -161,9 +161,34 @@ a:hover {
 /* Faint wavy lines running behind the whole page (home page only:
    <main class="page-waves">). Grey and navy sections cover them, so the
    white sections show different stretches of one continuous flow.
-   The hero gets a plain white background so it stays clean. */
+   The hero gets a plain white background so it stays clean.
+   The waves drift slowly to the left (one full loop every 4 minutes). */
 .page-waves {
-  background: url("../assets/img/waves.svg") center top / max(100%, 1440px) auto repeat-y;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.page-waves::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(100% + 2160px);   /* extra width = one tile, so the loop is seamless */
+  z-index: -1;
+  background: url("../assets/img/waves.svg") 0 0 / 2160px 2400px repeat;
+  animation: waves-drift 240s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes waves-drift {
+  to { transform: translateX(-2160px); }
+}
+
+/* No moving waves for people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .page-waves::before { animation: none; }
 }
 
 .page-waves .hero {
