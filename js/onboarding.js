@@ -41,42 +41,43 @@ form.querySelectorAll("select[data-other]").forEach((select) => {
 });
 
 
-/* ----- Work experience: "Add another" shows the next box (up to 3) ----- */
-const jobs   = [1, 2, 3].map((n) => document.getElementById("job-" + n));
-const addJob = document.getElementById("add-job");
-let jobCount = 1;   // how many work experience boxes are showing
+/* ----- Education and Work Experience: "+ Add another" shows the next box (up to 3) ----- */
+document.querySelectorAll(".add-entry").forEach((addButton) => {
+  const entries = [...addButton.closest("fieldset").querySelectorAll(".entry")];
+  let count = 1;   // how many boxes are showing
 
-function showJobs() {
-  jobs.forEach((job, i) => {
-    const showing = i < jobCount;
-    job.hidden = !showing;
-    // Hidden boxes are switched off, so they're never sent or checked
-    job.querySelectorAll("input, textarea").forEach((field) => (field.disabled = !showing));
-    // Only the last box can be removed (box 1 always stays)
-    const remove = job.querySelector(".job-remove");
-    if (remove) remove.hidden = i !== jobCount - 1;
+  function show() {
+    entries.forEach((entry, i) => {
+      const showing = i < count;
+      entry.hidden = !showing;
+      // Hidden boxes are switched off, so they're never sent or checked
+      entry.querySelectorAll("input, select, textarea").forEach((field) => (field.disabled = !showing));
+      // Only the last box can be removed (box 1 always stays)
+      const remove = entry.querySelector(".entry-remove");
+      if (remove) remove.hidden = i !== count - 1;
+    });
+    addButton.hidden = count >= entries.length;
+  }
+
+  addButton.addEventListener("click", () => {
+    count++;
+    show();
+    entries[count - 1].querySelector("input").focus();
   });
-  addJob.hidden = jobCount >= jobs.length;
-}
 
-addJob.addEventListener("click", () => {
-  jobCount++;
-  showJobs();
-  jobs[jobCount - 1].querySelector("input").focus();
-});
-
-jobs.forEach((job) => {
-  const remove = job.querySelector(".job-remove");
-  if (!remove) return;
-  remove.addEventListener("click", () => {
-    job.querySelectorAll("input, textarea").forEach((field) => (field.value = ""));
-    jobCount--;
-    showJobs();
-    addJob.hidden ? jobs[jobCount - 1].querySelector("input").focus() : addJob.focus();
+  entries.forEach((entry) => {
+    const remove = entry.querySelector(".entry-remove");
+    if (!remove) return;
+    remove.addEventListener("click", () => {
+      entry.querySelectorAll("input, select, textarea").forEach((field) => (field.value = ""));
+      count--;
+      show();
+      addButton.hidden ? entries[count - 1].querySelector("input").focus() : addButton.focus();
+    });
   });
-});
 
-showJobs();
+  show();
+});
 
 
 /* ----- File upload box ----- */

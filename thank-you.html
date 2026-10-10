@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
 
@@ -162,38 +162,106 @@
               </div>
             </fieldset>
 
-            <!-- ----- 3. Education ----- -->
+            <!-- ----- 3. Education =====
+                 Education 2 and 3 start hidden. The "Add another education"
+                 button shows them one at a time (up to 3), see js/onboarding.js. -->
             <fieldset>
               <legend>Your Education</legend>
-              <p class="hint">Enter your highest or most recent education.</p>
-              <div class="form-grid">
-                <div class="field">
-                  <label for="ob-school">School</label>
-                  <input id="ob-school" name="School" type="text" required>
-                </div>
-                <div class="field">
-                  <label for="ob-degree">Degree</label>
-                  <select id="ob-degree" name="Degree" required>
-                    <option value="">Choose a degree</option>
-                    <option>High School</option>
-                    <option>Associate's</option>
-                    <option>Bachelor's</option>
-                    <option>Master's</option>
-                    <option>PhD</option>
-                    <option>Professional</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="ob-school-start">Start date</label>
-                  <span class="hint" id="ob-school-start-hint">MM/YYYY</span>
-                  <input id="ob-school-start" name="School start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required aria-describedby="ob-school-start-hint">
-                </div>
-                <div class="field">
-                  <label for="ob-school-end">End date</label>
-                  <span class="hint" id="ob-school-end-hint">MM/YYYY, or your expected graduation date</span>
-                  <input id="ob-school-end" name="School end date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required aria-describedby="ob-school-end-hint">
+              <p class="hint">Start with your highest or most recent education.</p>
+
+              <div class="entry" id="edu-1">
+                <h3 class="entry-heading">Education 1</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="edu1-school">School</label>
+                    <input id="edu1-school" name="Education 1 - School" type="text" required>
+                  </div>
+                  <div class="field">
+                    <label for="edu1-degree">Degree</label>
+                    <select id="edu1-degree" name="Education 1 - Degree" required>
+                      <option value="">Choose a degree</option>
+                      <option>High School</option>
+                      <option>Associate's</option>
+                      <option>Bachelor's</option>
+                      <option>Master's</option>
+                      <option>PhD</option>
+                      <option>Professional</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edu1-start">Start date</label>
+                    <input id="edu1-start" name="Education 1 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required>
+                  </div>
+                  <div class="field">
+                    <label for="edu1-end">End date <span class="optional">(or expected)</span></label>
+                    <input id="edu1-end" name="Education 1 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required>
+                  </div>
                 </div>
               </div>
+
+              <div class="entry" id="edu-2" hidden>
+                <h3 class="entry-heading">Education 2</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="edu2-school">School</label>
+                    <input id="edu2-school" name="Education 2 - School" type="text" required disabled>
+                  </div>
+                  <div class="field">
+                    <label for="edu2-degree">Degree</label>
+                    <select id="edu2-degree" name="Education 2 - Degree" required disabled>
+                      <option value="">Choose a degree</option>
+                      <option>High School</option>
+                      <option>Associate's</option>
+                      <option>Bachelor's</option>
+                      <option>Master's</option>
+                      <option>PhD</option>
+                      <option>Professional</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edu2-start">Start date</label>
+                    <input id="edu2-start" name="Education 2 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required disabled>
+                  </div>
+                  <div class="field">
+                    <label for="edu2-end">End date <span class="optional">(or expected)</span></label>
+                    <input id="edu2-end" name="Education 2 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required disabled>
+                  </div>
+                </div>
+                <button class="link-btn entry-remove" type="button">Remove Education 2</button>
+              </div>
+
+              <div class="entry" id="edu-3" hidden>
+                <h3 class="entry-heading">Education 3</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="edu3-school">School</label>
+                    <input id="edu3-school" name="Education 3 - School" type="text" required disabled>
+                  </div>
+                  <div class="field">
+                    <label for="edu3-degree">Degree</label>
+                    <select id="edu3-degree" name="Education 3 - Degree" required disabled>
+                      <option value="">Choose a degree</option>
+                      <option>High School</option>
+                      <option>Associate's</option>
+                      <option>Bachelor's</option>
+                      <option>Master's</option>
+                      <option>PhD</option>
+                      <option>Professional</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edu3-start">Start date</label>
+                    <input id="edu3-start" name="Education 3 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required disabled>
+                  </div>
+                  <div class="field">
+                    <label for="edu3-end">End date <span class="optional">(or expected)</span></label>
+                    <input id="edu3-end" name="Education 3 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required disabled>
+                  </div>
+                </div>
+                <button class="link-btn entry-remove" type="button">Remove Education 3</button>
+              </div>
+
+              <button class="btn btn--outline add-entry" type="button">+ Add another education</button>
             </fieldset>
 
             <!-- ----- 4. Work experience =====
@@ -203,8 +271,8 @@
               <legend>Your Work Experience</legend>
               <p class="hint">Start with your most recent job. Leave this section blank if you don't have work experience yet.</p>
 
-              <div class="job" id="job-1">
-                <h3 class="job-heading">Work Experience 1</h3>
+              <div class="entry" id="job-1">
+                <h3 class="entry-heading">Work Experience 1</h3>
                 <div class="form-grid">
                   <div class="field">
                     <label for="job1-title">Job title</label>
@@ -229,8 +297,8 @@
                 </div>
               </div>
 
-              <div class="job" id="job-2" hidden>
-                <h3 class="job-heading">Work Experience 2</h3>
+              <div class="entry" id="job-2" hidden>
+                <h3 class="entry-heading">Work Experience 2</h3>
                 <div class="form-grid">
                   <div class="field">
                     <label for="job2-title">Job title</label>
@@ -253,11 +321,11 @@
                   <label for="job2-duties">Main duties and achievements</label>
                   <textarea id="job2-duties" name="Job 2 - Duties" disabled></textarea>
                 </div>
-                <button class="link-btn job-remove" type="button">Remove Work Experience 2</button>
+                <button class="link-btn entry-remove" type="button">Remove Work Experience 2</button>
               </div>
 
-              <div class="job" id="job-3" hidden>
-                <h3 class="job-heading">Work Experience 3</h3>
+              <div class="entry" id="job-3" hidden>
+                <h3 class="entry-heading">Work Experience 3</h3>
                 <div class="form-grid">
                   <div class="field">
                     <label for="job3-title">Job title</label>
@@ -280,10 +348,10 @@
                   <label for="job3-duties">Main duties and achievements</label>
                   <textarea id="job3-duties" name="Job 3 - Duties" disabled></textarea>
                 </div>
-                <button class="link-btn job-remove" type="button">Remove Work Experience 3</button>
+                <button class="link-btn entry-remove" type="button">Remove Work Experience 3</button>
               </div>
 
-              <button class="btn btn--outline add-job" id="add-job" type="button">+ Add another work experience</button>
+              <button class="btn btn--outline add-entry" type="button">+ Add another work experience</button>
             </fieldset>
 
             <!-- ----- 5. Job goals ----- -->
@@ -446,7 +514,7 @@
   </footer>
   <!-- ===== FOOTER END ===== -->
 
-  <script src="js/onboarding.js?v=3" defer></script>
+  <script src="js/onboarding.js?v=4" defer></script>
 
 </body>
 </html>

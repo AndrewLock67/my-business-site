@@ -918,19 +918,19 @@ fieldset > .hint {
   margin: -0.5rem 0 1.25rem;
 }
 
-/* Work experience boxes (thank-you page) */
-.job + .job {
+/* Education and work experience boxes (thank-you page) */
+.entry + .entry {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px dashed var(--border);
 }
 
-.job-heading {
+.entry-heading {
   margin-bottom: 1rem;
   font-size: 1.05rem;
 }
 
-.add-job {
+.add-entry {
   margin-bottom: 1.25rem;
 }
 
