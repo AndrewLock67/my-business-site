@@ -158,6 +158,12 @@ a:hover {
   background: var(--gray-bg);
 }
 
+/* Faint wavy lines behind a white section. Add class="section--waves"
+   to a <section> to use it (home page: How It Works, Support). */
+.section--waves {
+  background: url("../assets/img/waves.svg") center / cover no-repeat;
+}
+
 .section-intro {
   margin-bottom: 2.5rem;
 }
