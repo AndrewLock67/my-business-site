@@ -162,7 +162,7 @@ a:hover {
    <main class="page-waves">). Grey and navy sections cover them, so the
    white sections show different stretches of one continuous flow.
    The hero gets a plain white background so it stays clean.
-   The waves drift slowly to the left (one full loop every 60 seconds). */
+   The waves drift slowly to the left (one full loop every 45 seconds). */
 .page-waves {
   position: relative;
   isolation: isolate;
@@ -178,7 +178,7 @@ a:hover {
   width: calc(100% + 2160px);   /* extra width = one tile, so the loop is seamless */
   z-index: -1;
   background: url("../assets/img/waves.svg") 0 0 / 2160px 2400px repeat;
-  animation: waves-drift 60s linear infinite;
+  animation: waves-drift 45s linear infinite;
   pointer-events: none;
 }
 
