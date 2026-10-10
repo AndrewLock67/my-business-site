@@ -16,6 +16,7 @@
   --charcoal: #111827;   /* headings, body text, footer */
   --navy: #0B2545;       /* JAO logo color: buttons, links, accents, dark sections */
   --navy-hover: #1D4E89; /* button and link hover */
+  --heading: #1D4E89;    /* headings (brand blue, like CDC.gov's blue headings) */
   --error: #C8102E;      /* error messages only */
   --white: #FFFFFF;
   --gray-bg: #EAEFF5;    /* alternating section background */
@@ -91,6 +92,7 @@ svg {
 
 h1, h2, h3 {
   font-family: var(--font-heading);
+  color: var(--heading);
   line-height: 1.25;
   margin: 0 0 0.75rem;
   font-weight: 400;     /* page and section titles: regular, like CDC.gov */
@@ -858,6 +860,11 @@ textarea:focus-visible {
 .cta-band {
   text-align: center;
   background: var(--navy);
+  color: var(--white);
+}
+
+/* Headings on the navy band stay white */
+.cta-band h2 {
   color: var(--white);
 }
 
