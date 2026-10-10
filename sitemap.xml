@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- sitemap.xml — the list of pages you want search engines to find.
-     Replace YOUR-DOMAIN.com with the real web address when the site goes live.
      When the Privacy, Terms and Refund pages are written (and their "noindex"
      line is removed), add them here too. Update <lastmod> when a page changes. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN.com/</loc>
+    <loc>https://jobappoffice.com/</loc>
     <lastmod>2026-10-09</lastmod>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/services-pricing.html</loc>
+    <loc>https://jobappoffice.com/services-pricing</loc>
     <lastmod>2026-10-09</lastmod>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/faq-contact.html</loc>
+    <loc>https://jobappoffice.com/faq-contact</loc>
     <lastmod>2026-10-09</lastmod>
   </url>
 </urlset>

@@ -4,5 +4,4 @@
 User-agent: *
 Allow: /
 
-# Replace YOUR-DOMAIN.com with the real web address when the site goes live.
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://jobappoffice.com/sitemap.xml
