@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body>
 
@@ -94,7 +94,10 @@
             <!-- Spam trap: hidden from people, but spam bots tick it and get rejected. Don't remove. -->
             <input type="checkbox" name="botcheck" class="bot-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-            <!-- ----- 1. Personal information ----- -->
+            <!-- ----- 1. Personal information =====
+                 Country codes and countries: edit the <option> lines. United States is listed first and chosen by default.
+                 When a country other than the United States is chosen, the State dropdown switches to a text box
+                 and "ZIP code" becomes "Postal code" (see js/onboarding.js). -->
             <fieldset>
               <legend>Your Information</legend>
               <div class="form-grid">
@@ -107,21 +110,277 @@
                   <span class="hint" id="ob-email-hint">Use the email from checkout so we can match your order.</span>
                   <input id="ob-email" name="email" type="email" autocomplete="email" required aria-describedby="ob-email-hint">
                 </div>
+              </div>
+              <div class="field">
+                <span class="label" id="ob-phone-label">Phone</span>
+                <div class="phone-row" role="group" aria-labelledby="ob-phone-label">
+                  <select id="ob-phone-code" name="Phone country code" aria-label="Country code" required>
+                    <option value="+1 (United States)" selected>United States (+1)</option>
+                    <option value="+93 (Afghanistan)">Afghanistan (+93)</option>
+                    <option value="+355 (Albania)">Albania (+355)</option>
+                    <option value="+213 (Algeria)">Algeria (+213)</option>
+                    <option value="+54 (Argentina)">Argentina (+54)</option>
+                    <option value="+374 (Armenia)">Armenia (+374)</option>
+                    <option value="+61 (Australia)">Australia (+61)</option>
+                    <option value="+43 (Austria)">Austria (+43)</option>
+                    <option value="+994 (Azerbaijan)">Azerbaijan (+994)</option>
+                    <option value="+1 (Bahamas)">Bahamas (+1)</option>
+                    <option value="+973 (Bahrain)">Bahrain (+973)</option>
+                    <option value="+880 (Bangladesh)">Bangladesh (+880)</option>
+                    <option value="+375 (Belarus)">Belarus (+375)</option>
+                    <option value="+32 (Belgium)">Belgium (+32)</option>
+                    <option value="+591 (Bolivia)">Bolivia (+591)</option>
+                    <option value="+387 (Bosnia and Herzegovina)">Bosnia and Herzegovina (+387)</option>
+                    <option value="+55 (Brazil)">Brazil (+55)</option>
+                    <option value="+359 (Bulgaria)">Bulgaria (+359)</option>
+                    <option value="+855 (Cambodia)">Cambodia (+855)</option>
+                    <option value="+237 (Cameroon)">Cameroon (+237)</option>
+                    <option value="+1 (Canada)">Canada (+1)</option>
+                    <option value="+56 (Chile)">Chile (+56)</option>
+                    <option value="+86 (China)">China (+86)</option>
+                    <option value="+57 (Colombia)">Colombia (+57)</option>
+                    <option value="+506 (Costa Rica)">Costa Rica (+506)</option>
+                    <option value="+385 (Croatia)">Croatia (+385)</option>
+                    <option value="+53 (Cuba)">Cuba (+53)</option>
+                    <option value="+357 (Cyprus)">Cyprus (+357)</option>
+                    <option value="+420 (Czech Republic)">Czech Republic (+420)</option>
+                    <option value="+45 (Denmark)">Denmark (+45)</option>
+                    <option value="+1 (Dominican Republic)">Dominican Republic (+1)</option>
+                    <option value="+593 (Ecuador)">Ecuador (+593)</option>
+                    <option value="+20 (Egypt)">Egypt (+20)</option>
+                    <option value="+503 (El Salvador)">El Salvador (+503)</option>
+                    <option value="+372 (Estonia)">Estonia (+372)</option>
+                    <option value="+251 (Ethiopia)">Ethiopia (+251)</option>
+                    <option value="+358 (Finland)">Finland (+358)</option>
+                    <option value="+33 (France)">France (+33)</option>
+                    <option value="+995 (Georgia)">Georgia (+995)</option>
+                    <option value="+49 (Germany)">Germany (+49)</option>
+                    <option value="+233 (Ghana)">Ghana (+233)</option>
+                    <option value="+30 (Greece)">Greece (+30)</option>
+                    <option value="+502 (Guatemala)">Guatemala (+502)</option>
+                    <option value="+509 (Haiti)">Haiti (+509)</option>
+                    <option value="+504 (Honduras)">Honduras (+504)</option>
+                    <option value="+852 (Hong Kong)">Hong Kong (+852)</option>
+                    <option value="+36 (Hungary)">Hungary (+36)</option>
+                    <option value="+354 (Iceland)">Iceland (+354)</option>
+                    <option value="+91 (India)">India (+91)</option>
+                    <option value="+62 (Indonesia)">Indonesia (+62)</option>
+                    <option value="+98 (Iran)">Iran (+98)</option>
+                    <option value="+964 (Iraq)">Iraq (+964)</option>
+                    <option value="+353 (Ireland)">Ireland (+353)</option>
+                    <option value="+972 (Israel)">Israel (+972)</option>
+                    <option value="+39 (Italy)">Italy (+39)</option>
+                    <option value="+1 (Jamaica)">Jamaica (+1)</option>
+                    <option value="+81 (Japan)">Japan (+81)</option>
+                    <option value="+962 (Jordan)">Jordan (+962)</option>
+                    <option value="+7 (Kazakhstan)">Kazakhstan (+7)</option>
+                    <option value="+254 (Kenya)">Kenya (+254)</option>
+                    <option value="+965 (Kuwait)">Kuwait (+965)</option>
+                    <option value="+371 (Latvia)">Latvia (+371)</option>
+                    <option value="+961 (Lebanon)">Lebanon (+961)</option>
+                    <option value="+370 (Lithuania)">Lithuania (+370)</option>
+                    <option value="+352 (Luxembourg)">Luxembourg (+352)</option>
+                    <option value="+60 (Malaysia)">Malaysia (+60)</option>
+                    <option value="+356 (Malta)">Malta (+356)</option>
+                    <option value="+52 (Mexico)">Mexico (+52)</option>
+                    <option value="+373 (Moldova)">Moldova (+373)</option>
+                    <option value="+976 (Mongolia)">Mongolia (+976)</option>
+                    <option value="+382 (Montenegro)">Montenegro (+382)</option>
+                    <option value="+212 (Morocco)">Morocco (+212)</option>
+                    <option value="+95 (Myanmar)">Myanmar (+95)</option>
+                    <option value="+977 (Nepal)">Nepal (+977)</option>
+                    <option value="+31 (Netherlands)">Netherlands (+31)</option>
+                    <option value="+64 (New Zealand)">New Zealand (+64)</option>
+                    <option value="+505 (Nicaragua)">Nicaragua (+505)</option>
+                    <option value="+234 (Nigeria)">Nigeria (+234)</option>
+                    <option value="+389 (North Macedonia)">North Macedonia (+389)</option>
+                    <option value="+47 (Norway)">Norway (+47)</option>
+                    <option value="+968 (Oman)">Oman (+968)</option>
+                    <option value="+92 (Pakistan)">Pakistan (+92)</option>
+                    <option value="+507 (Panama)">Panama (+507)</option>
+                    <option value="+595 (Paraguay)">Paraguay (+595)</option>
+                    <option value="+51 (Peru)">Peru (+51)</option>
+                    <option value="+63 (Philippines)">Philippines (+63)</option>
+                    <option value="+48 (Poland)">Poland (+48)</option>
+                    <option value="+351 (Portugal)">Portugal (+351)</option>
+                    <option value="+1 (Puerto Rico)">Puerto Rico (+1)</option>
+                    <option value="+974 (Qatar)">Qatar (+974)</option>
+                    <option value="+40 (Romania)">Romania (+40)</option>
+                    <option value="+7 (Russia)">Russia (+7)</option>
+                    <option value="+966 (Saudi Arabia)">Saudi Arabia (+966)</option>
+                    <option value="+221 (Senegal)">Senegal (+221)</option>
+                    <option value="+381 (Serbia)">Serbia (+381)</option>
+                    <option value="+65 (Singapore)">Singapore (+65)</option>
+                    <option value="+421 (Slovakia)">Slovakia (+421)</option>
+                    <option value="+386 (Slovenia)">Slovenia (+386)</option>
+                    <option value="+27 (South Africa)">South Africa (+27)</option>
+                    <option value="+82 (South Korea)">South Korea (+82)</option>
+                    <option value="+34 (Spain)">Spain (+34)</option>
+                    <option value="+94 (Sri Lanka)">Sri Lanka (+94)</option>
+                    <option value="+46 (Sweden)">Sweden (+46)</option>
+                    <option value="+41 (Switzerland)">Switzerland (+41)</option>
+                    <option value="+886 (Taiwan)">Taiwan (+886)</option>
+                    <option value="+255 (Tanzania)">Tanzania (+255)</option>
+                    <option value="+66 (Thailand)">Thailand (+66)</option>
+                    <option value="+1 (Trinidad and Tobago)">Trinidad and Tobago (+1)</option>
+                    <option value="+216 (Tunisia)">Tunisia (+216)</option>
+                    <option value="+90 (Turkey)">Turkey (+90)</option>
+                    <option value="+256 (Uganda)">Uganda (+256)</option>
+                    <option value="+380 (Ukraine)">Ukraine (+380)</option>
+                    <option value="+971 (United Arab Emirates)">United Arab Emirates (+971)</option>
+                    <option value="+44 (United Kingdom)">United Kingdom (+44)</option>
+                    <option value="+598 (Uruguay)">Uruguay (+598)</option>
+                    <option value="+998 (Uzbekistan)">Uzbekistan (+998)</option>
+                    <option value="+58 (Venezuela)">Venezuela (+58)</option>
+                    <option value="+84 (Vietnam)">Vietnam (+84)</option>
+                    <option value="+263 (Zimbabwe)">Zimbabwe (+263)</option>
+                    <option value="Other (included in number)">Other (add code to number)</option>
+                  </select>
+                  <input id="ob-phone" name="Phone" type="tel" autocomplete="tel-national" aria-label="Phone number" required>
+                </div>
+              </div>
+              <div class="form-grid">
                 <div class="field">
-                  <label for="ob-phone">Phone</label>
-                  <input id="ob-phone" name="Phone" type="tel" autocomplete="tel" required>
+                  <label for="ob-country">Country</label>
+                  <select id="ob-country" name="Country" autocomplete="country-name" required data-other="ob-country-other-field">
+                    <option selected>United States</option>
+                    <option>Afghanistan</option>
+                    <option>Albania</option>
+                    <option>Algeria</option>
+                    <option>Argentina</option>
+                    <option>Armenia</option>
+                    <option>Australia</option>
+                    <option>Austria</option>
+                    <option>Azerbaijan</option>
+                    <option>Bahamas</option>
+                    <option>Bahrain</option>
+                    <option>Bangladesh</option>
+                    <option>Belarus</option>
+                    <option>Belgium</option>
+                    <option>Bolivia</option>
+                    <option>Bosnia and Herzegovina</option>
+                    <option>Brazil</option>
+                    <option>Bulgaria</option>
+                    <option>Cambodia</option>
+                    <option>Cameroon</option>
+                    <option>Canada</option>
+                    <option>Chile</option>
+                    <option>China</option>
+                    <option>Colombia</option>
+                    <option>Costa Rica</option>
+                    <option>Croatia</option>
+                    <option>Cuba</option>
+                    <option>Cyprus</option>
+                    <option>Czech Republic</option>
+                    <option>Denmark</option>
+                    <option>Dominican Republic</option>
+                    <option>Ecuador</option>
+                    <option>Egypt</option>
+                    <option>El Salvador</option>
+                    <option>Estonia</option>
+                    <option>Ethiopia</option>
+                    <option>Finland</option>
+                    <option>France</option>
+                    <option>Georgia</option>
+                    <option>Germany</option>
+                    <option>Ghana</option>
+                    <option>Greece</option>
+                    <option>Guatemala</option>
+                    <option>Haiti</option>
+                    <option>Honduras</option>
+                    <option>Hong Kong</option>
+                    <option>Hungary</option>
+                    <option>Iceland</option>
+                    <option>India</option>
+                    <option>Indonesia</option>
+                    <option>Iran</option>
+                    <option>Iraq</option>
+                    <option>Ireland</option>
+                    <option>Israel</option>
+                    <option>Italy</option>
+                    <option>Jamaica</option>
+                    <option>Japan</option>
+                    <option>Jordan</option>
+                    <option>Kazakhstan</option>
+                    <option>Kenya</option>
+                    <option>Kuwait</option>
+                    <option>Latvia</option>
+                    <option>Lebanon</option>
+                    <option>Lithuania</option>
+                    <option>Luxembourg</option>
+                    <option>Malaysia</option>
+                    <option>Malta</option>
+                    <option>Mexico</option>
+                    <option>Moldova</option>
+                    <option>Mongolia</option>
+                    <option>Montenegro</option>
+                    <option>Morocco</option>
+                    <option>Myanmar</option>
+                    <option>Nepal</option>
+                    <option>Netherlands</option>
+                    <option>New Zealand</option>
+                    <option>Nicaragua</option>
+                    <option>Nigeria</option>
+                    <option>North Macedonia</option>
+                    <option>Norway</option>
+                    <option>Oman</option>
+                    <option>Pakistan</option>
+                    <option>Panama</option>
+                    <option>Paraguay</option>
+                    <option>Peru</option>
+                    <option>Philippines</option>
+                    <option>Poland</option>
+                    <option>Portugal</option>
+                    <option>Puerto Rico</option>
+                    <option>Qatar</option>
+                    <option>Romania</option>
+                    <option>Russia</option>
+                    <option>Saudi Arabia</option>
+                    <option>Senegal</option>
+                    <option>Serbia</option>
+                    <option>Singapore</option>
+                    <option>Slovakia</option>
+                    <option>Slovenia</option>
+                    <option>South Africa</option>
+                    <option>South Korea</option>
+                    <option>Spain</option>
+                    <option>Sri Lanka</option>
+                    <option>Sweden</option>
+                    <option>Switzerland</option>
+                    <option>Taiwan</option>
+                    <option>Tanzania</option>
+                    <option>Thailand</option>
+                    <option>Trinidad and Tobago</option>
+                    <option>Tunisia</option>
+                    <option>Turkey</option>
+                    <option>Uganda</option>
+                    <option>Ukraine</option>
+                    <option>United Arab Emirates</option>
+                    <option>United Kingdom</option>
+                    <option>Uruguay</option>
+                    <option>Uzbekistan</option>
+                    <option>Venezuela</option>
+                    <option>Vietnam</option>
+                    <option>Zimbabwe</option>
+                    <option>Other</option>
+                  </select>
                 </div>
                 <div class="field">
                   <label for="ob-street">Street address</label>
                   <input id="ob-street" name="Street address" type="text" autocomplete="street-address" required>
                 </div>
               </div>
+              <!-- Shown only when "Other" is chosen as the country -->
+              <div class="field other-field" id="ob-country-other-field">
+                <label for="ob-country-other">Country name</label>
+                <input id="ob-country-other" name="Country (details)" type="text">
+              </div>
               <div class="form-grid form-grid--3">
                 <div class="field">
                   <label for="ob-city">City</label>
                   <input id="ob-city" name="City" type="text" autocomplete="address-level2" required>
                 </div>
-                <div class="field">
+                <div class="field" id="ob-state-field">
                   <label for="ob-state">State</label>
                   <select id="ob-state" name="State" autocomplete="address-level1" required>
                     <option value="">Choose a state</option>
@@ -140,9 +399,13 @@
                     <option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
                   </select>
                 </div>
+                <div class="field" id="ob-region-field" hidden>
+                  <label for="ob-region">State / province / region</label>
+                  <input id="ob-region" name="State / province / region" type="text" autocomplete="address-level1" required disabled>
+                </div>
                 <div class="field">
-                  <label for="ob-zip">ZIP code</label>
-                  <input id="ob-zip" name="ZIP code" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}(-[0-9]{4})?" required>
+                  <label for="ob-zip" id="ob-zip-label">ZIP code</label>
+                  <input id="ob-zip" name="ZIP / postal code" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}(-[0-9]{4})?" required>
                 </div>
               </div>
             </fieldset>
@@ -177,13 +440,19 @@
                     <input id="edu1-school" name="Education 1 - School" type="text" required>
                   </div>
                   <div class="field">
+                    <label for="edu1-location">Location</label>
+                    <input id="edu1-location" name="Education 1 - Location" type="text" placeholder="City, state or country" required>
+                  </div>
+                </div>
+                <div class="form-grid form-grid--even3">
+                  <div class="field">
                     <label for="edu1-degree">Degree</label>
                     <select id="edu1-degree" name="Education 1 - Degree" required>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
-                      <option>Associate's</option>
-                      <option>Bachelor's</option>
-                      <option>Master's</option>
+                      <option>Associate&#39;s</option>
+                      <option>Bachelor&#39;s</option>
+                      <option>Master&#39;s</option>
                       <option>PhD</option>
                       <option>Professional</option>
                     </select>
@@ -207,13 +476,19 @@
                     <input id="edu2-school" name="Education 2 - School" type="text" required disabled>
                   </div>
                   <div class="field">
+                    <label for="edu2-location">Location</label>
+                    <input id="edu2-location" name="Education 2 - Location" type="text" placeholder="City, state or country" required disabled>
+                  </div>
+                </div>
+                <div class="form-grid form-grid--even3">
+                  <div class="field">
                     <label for="edu2-degree">Degree</label>
                     <select id="edu2-degree" name="Education 2 - Degree" required disabled>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
-                      <option>Associate's</option>
-                      <option>Bachelor's</option>
-                      <option>Master's</option>
+                      <option>Associate&#39;s</option>
+                      <option>Bachelor&#39;s</option>
+                      <option>Master&#39;s</option>
                       <option>PhD</option>
                       <option>Professional</option>
                     </select>
@@ -238,13 +513,19 @@
                     <input id="edu3-school" name="Education 3 - School" type="text" required disabled>
                   </div>
                   <div class="field">
+                    <label for="edu3-location">Location</label>
+                    <input id="edu3-location" name="Education 3 - Location" type="text" placeholder="City, state or country" required disabled>
+                  </div>
+                </div>
+                <div class="form-grid form-grid--even3">
+                  <div class="field">
                     <label for="edu3-degree">Degree</label>
                     <select id="edu3-degree" name="Education 3 - Degree" required disabled>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
-                      <option>Associate's</option>
-                      <option>Bachelor's</option>
-                      <option>Master's</option>
+                      <option>Associate&#39;s</option>
+                      <option>Bachelor&#39;s</option>
+                      <option>Master&#39;s</option>
                       <option>PhD</option>
                       <option>Professional</option>
                     </select>
@@ -282,6 +563,12 @@
                     <label for="job1-employer">Employer</label>
                     <input id="job1-employer" name="Job 1 - Employer" type="text">
                   </div>
+                </div>
+                <div class="form-grid form-grid--even3">
+                  <div class="field">
+                    <label for="job1-location">Location</label>
+                    <input id="job1-location" name="Job 1 - Location" type="text" placeholder="City, state or country">
+                  </div>
                   <div class="field">
                     <label for="job1-start">Start date</label>
                     <input id="job1-start" name="Job 1 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY">
@@ -307,6 +594,12 @@
                   <div class="field">
                     <label for="job2-employer">Employer</label>
                     <input id="job2-employer" name="Job 2 - Employer" type="text" disabled>
+                  </div>
+                </div>
+                <div class="form-grid form-grid--even3">
+                  <div class="field">
+                    <label for="job2-location">Location</label>
+                    <input id="job2-location" name="Job 2 - Location" type="text" placeholder="City, state or country" disabled>
                   </div>
                   <div class="field">
                     <label for="job2-start">Start date</label>
@@ -334,6 +627,12 @@
                   <div class="field">
                     <label for="job3-employer">Employer</label>
                     <input id="job3-employer" name="Job 3 - Employer" type="text" disabled>
+                  </div>
+                </div>
+                <div class="form-grid form-grid--even3">
+                  <div class="field">
+                    <label for="job3-location">Location</label>
+                    <input id="job3-location" name="Job 3 - Location" type="text" placeholder="City, state or country" disabled>
                   </div>
                   <div class="field">
                     <label for="job3-start">Start date</label>
@@ -514,7 +813,7 @@
   </footer>
   <!-- ===== FOOTER END ===== -->
 
-  <script src="js/onboarding.js?v=4" defer></script>
+  <script src="js/onboarding.js?v=5" defer></script>
 
 </body>
 </html>

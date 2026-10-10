@@ -855,6 +855,28 @@ legend {
   .form-grid--3 { grid-template-columns: 2fr 1.5fr 1fr; }
 }
 
+@media (min-width: 40em) {
+  .form-grid--even3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* A label for a group of boxes (looks like a normal label) */
+.label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+/* Phone: country code dropdown next to the number */
+.phone-row {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
+@media (max-width: 30em) {
+  .phone-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+}
+
 /* Lines up fields in a row even when only some have a hint */
 .form-grid .field {
   display: flex;

@@ -41,6 +41,33 @@ form.querySelectorAll("select[data-other]").forEach((select) => {
 });
 
 
+/* ----- Address: US uses the State dropdown and a ZIP code; other countries type a region and postal code ----- */
+const country     = document.getElementById("ob-country");
+const stateField  = document.getElementById("ob-state-field");
+const regionField = document.getElementById("ob-region-field");
+const zipInput    = document.getElementById("ob-zip");
+const zipLabel    = document.getElementById("ob-zip-label");
+
+function updateAddress() {
+  const isUS = country.value === "United States";
+  stateField.hidden = !isUS;
+  regionField.hidden = isUS;
+  stateField.querySelector("select").disabled = !isUS;
+  regionField.querySelector("input").disabled = isUS;
+  zipLabel.textContent = isUS ? "ZIP code" : "Postal code";
+  if (isUS) {
+    zipInput.setAttribute("pattern", "[0-9]{5}(-[0-9]{4})?");
+    zipInput.setAttribute("inputmode", "numeric");
+  } else {
+    zipInput.removeAttribute("pattern");      // postal codes differ by country
+    zipInput.removeAttribute("inputmode");    // many include letters
+  }
+}
+
+country.addEventListener("change", updateAddress);
+updateAddress();
+
+
 /* ----- Education and Work Experience: "+ Add another" shows the next box (up to 3) ----- */
 document.querySelectorAll(".add-entry").forEach((addButton) => {
   const entries = [...addButton.closest("fieldset").querySelectorAll(".entry")];
