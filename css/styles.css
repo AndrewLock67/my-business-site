@@ -556,6 +556,18 @@ a:hover {
   margin-top: auto;
 }
 
+/* Tiles get a blue outline when hovered (box-shadow, so nothing shifts) */
+.card,
+.price-card {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover,
+.price-card:hover {
+  border-color: var(--navy-hover);
+  box-shadow: 0 0 0 1px var(--navy-hover);
+}
+
 /* Package cards on the pricing page: each row (name, price, range,
    description, button) lines up across all four cards, even when
    one card's text wraps onto more lines than the others. */
