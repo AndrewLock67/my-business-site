@@ -856,6 +856,39 @@ textarea:focus-visible {
   margin: 0 0 1rem;
 }
 
+/* Quick-jump buttons above the questions */
+.faq-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.faq-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.faq-jump a:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Leave room above a question when a button jumps to it */
+.faq details {
+  scroll-margin-top: 1.5rem;
+}
+
 
 /* ===== 14. CALL-TO-ACTION BAND ===== */
 .cta-band {

@@ -1,5 +1,5 @@
 /* =========================================================
-   JAO — contact form (FAQ & Contact page only)
+   JAO — contact form + FAQ quick-jump buttons (FAQ & Contact page only)
    ---------------------------------------------------------
    Sends the form to Web3Forms in the background, then swaps
    the form for a thank-you message without leaving the page.
@@ -40,6 +40,13 @@ form.addEventListener("submit", async (event) => {
     sendButton.disabled = false;
     sendButton.textContent = "Send Message";
   }
+});
+
+// FAQ quick-jump buttons: open the question they jump to
+document.querySelectorAll(".faq-jump a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.querySelector(link.getAttribute("href")).open = true;
+  });
 });
 
 // "Send another message" brings the empty form back

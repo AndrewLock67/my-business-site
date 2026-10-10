@@ -61,7 +61,18 @@
     <section class="section section--gray" aria-labelledby="faq-title">
       <div class="container">
         <h2 id="faq-title" class="faq">Frequently Asked Questions</h2>
-        <div class="faq space-above">
+
+        <!-- Quick-jump buttons: each href matches the id on a <details> below -->
+        <nav aria-label="Jump to a topic">
+          <ul class="faq-jump">
+            <li><a href="#faq-cost">Pricing</a></li>
+            <li><a href="#faq-refunds">Refunds</a></li>
+            <li><a href="#faq-timing">Timing</a></li>
+            <li><a href="#faq-included">What's included</a></li>
+          </ul>
+        </nav>
+
+        <div class="faq">
 
           <details>
             <summary>What does Job Application Office (JAO) do?</summary>
@@ -77,7 +88,7 @@
             </div>
           </details>
 
-          <details>
+          <details id="faq-timing">
             <summary>How long does it take?</summary>
             <div class="answer">
               <p>Timing depends on the information you provide, the availability of suitable openings, and the requirements of each application. We can begin once your onboarding is complete and the necessary details are available. Contact us if you have questions about your order's progress.</p>
@@ -91,7 +102,7 @@
             </div>
           </details>
 
-          <details>
+          <details id="faq-included">
             <summary>What is included in the service?</summary>
             <div class="answer">
               <p>Your service includes job opportunity discovery, resume and application-material customization, application submissions with your authorization, and application progress tracking.</p>
@@ -99,7 +110,7 @@
           </details>
 
           <!-- Prices also appear in index.html, services-pricing.html and js/pricing.js -->
-          <details>
+          <details id="faq-cost">
             <summary>How much does JAO cost?</summary>
             <div class="answer">
               <p>Pricing depends on the number of applications you purchase.</p>
@@ -113,7 +124,7 @@
             </div>
           </details>
 
-          <details>
+          <details id="faq-refunds">
             <summary>Can I cancel or get a refund?</summary>
             <div class="answer">
               <p>Yes. You can cancel all or part of your order at any time by emailing <a href="mailto:support@jobappoffice.com">support@jobappoffice.com</a>.</p>
