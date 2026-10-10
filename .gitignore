@@ -1,5 +1,15 @@
-﻿.DS_Store
+.DS_Store
 Thumbs.db
 desktop.ini
 node_modules/
 .env
+
+# ===== PRIVATE — never uploaded to GitHub =====
+# All notes in the main folder (briefs, ChatGPT exports, brand guide, editing guide).
+# Any new .md file you add here stays private automatically.
+/*.md
+# Exception: a README.md, if you ever add one, WILL be public.
+!/README.md
+
+# Original full-size photos (the website uses the smaller copies in assets/img)
+Images/
