@@ -433,24 +433,24 @@
                  button shows them one at a time (up to 3), see js/onboarding.js. -->
             <fieldset>
               <legend>Your Education</legend>
-              <p class="hint">Start with your highest or most recent education.</p>
+              <p class="hint">Start with your highest or most recent education. Leave this section blank if it doesn't apply to you.</p>
 
               <div class="entry" id="edu-1">
                 <h3 class="entry-heading">Education 1</h3>
                 <div class="form-grid">
                   <div class="field">
-                    <label for="edu1-school">School <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu1-school" name="Education 1 - School" type="text" required>
+                    <label for="edu1-school">School</label>
+                    <input id="edu1-school" name="Education 1 - School" type="text">
                   </div>
                   <div class="field">
-                    <label for="edu1-location">Location <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu1-location" name="Education 1 - Location" type="text" placeholder="City, state or country" required>
+                    <label for="edu1-location">Location</label>
+                    <input id="edu1-location" name="Education 1 - Location" type="text" placeholder="City, state or country">
                   </div>
                 </div>
                 <div class="form-grid form-grid--even3">
                   <div class="field">
-                    <label for="edu1-degree">Degree <span class="req" aria-hidden="true">*</span></label>
-                    <select id="edu1-degree" name="Education 1 - Degree" required>
+                    <label for="edu1-degree">Degree</label>
+                    <select id="edu1-degree" name="Education 1 - Degree">
                       <option value="">Choose a degree</option>
                       <option>High School</option>
                       <option>Associate&#39;s</option>
@@ -462,12 +462,12 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="edu1-start">Start date <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu1-start" name="Education 1 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required>
+                    <label for="edu1-start">Start date</label>
+                    <input id="edu1-start" name="Education 1 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021">
                   </div>
                   <div class="field">
-                    <label for="edu1-end">End date <span class="optional">(or expected)</span> <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu1-end" name="Education 1 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required>
+                    <label for="edu1-end">End date <span class="optional">(or expected)</span></label>
+                    <input id="edu1-end" name="Education 1 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025">
                   </div>
                 </div>
               </div>
@@ -476,18 +476,18 @@
                 <h3 class="entry-heading">Education 2</h3>
                 <div class="form-grid">
                   <div class="field">
-                    <label for="edu2-school">School <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu2-school" name="Education 2 - School" type="text" required disabled>
+                    <label for="edu2-school">School</label>
+                    <input id="edu2-school" name="Education 2 - School" type="text" disabled>
                   </div>
                   <div class="field">
-                    <label for="edu2-location">Location <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu2-location" name="Education 2 - Location" type="text" placeholder="City, state or country" required disabled>
+                    <label for="edu2-location">Location</label>
+                    <input id="edu2-location" name="Education 2 - Location" type="text" placeholder="City, state or country" disabled>
                   </div>
                 </div>
                 <div class="form-grid form-grid--even3">
                   <div class="field">
-                    <label for="edu2-degree">Degree <span class="req" aria-hidden="true">*</span></label>
-                    <select id="edu2-degree" name="Education 2 - Degree" required disabled>
+                    <label for="edu2-degree">Degree</label>
+                    <select id="edu2-degree" name="Education 2 - Degree" disabled>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
                       <option>Associate&#39;s</option>
@@ -499,12 +499,12 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="edu2-start">Start date <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu2-start" name="Education 2 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required disabled>
+                    <label for="edu2-start">Start date</label>
+                    <input id="edu2-start" name="Education 2 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" disabled>
                   </div>
                   <div class="field">
-                    <label for="edu2-end">End date <span class="optional">(or expected)</span> <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu2-end" name="Education 2 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required disabled>
+                    <label for="edu2-end">End date <span class="optional">(or expected)</span></label>
+                    <input id="edu2-end" name="Education 2 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" disabled>
                   </div>
                 </div>
                 <button class="link-btn entry-remove" type="button">Remove Education 2</button>
@@ -514,18 +514,18 @@
                 <h3 class="entry-heading">Education 3</h3>
                 <div class="form-grid">
                   <div class="field">
-                    <label for="edu3-school">School <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu3-school" name="Education 3 - School" type="text" required disabled>
+                    <label for="edu3-school">School</label>
+                    <input id="edu3-school" name="Education 3 - School" type="text" disabled>
                   </div>
                   <div class="field">
-                    <label for="edu3-location">Location <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu3-location" name="Education 3 - Location" type="text" placeholder="City, state or country" required disabled>
+                    <label for="edu3-location">Location</label>
+                    <input id="edu3-location" name="Education 3 - Location" type="text" placeholder="City, state or country" disabled>
                   </div>
                 </div>
                 <div class="form-grid form-grid--even3">
                   <div class="field">
-                    <label for="edu3-degree">Degree <span class="req" aria-hidden="true">*</span></label>
-                    <select id="edu3-degree" name="Education 3 - Degree" required disabled>
+                    <label for="edu3-degree">Degree</label>
+                    <select id="edu3-degree" name="Education 3 - Degree" disabled>
                       <option value="">Choose a degree</option>
                       <option>High School</option>
                       <option>Associate&#39;s</option>
@@ -537,12 +537,12 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="edu3-start">Start date <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu3-start" name="Education 3 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" required disabled>
+                    <label for="edu3-start">Start date</label>
+                    <input id="edu3-start" name="Education 3 - Start date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 09/2021" disabled>
                   </div>
                   <div class="field">
-                    <label for="edu3-end">End date <span class="optional">(or expected)</span> <span class="req" aria-hidden="true">*</span></label>
-                    <input id="edu3-end" name="Education 3 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" required disabled>
+                    <label for="edu3-end">End date <span class="optional">(or expected)</span></label>
+                    <input id="edu3-end" name="Education 3 - End date" type="text" inputmode="numeric" placeholder="MM/YYYY" pattern="(0[1-9]|1[0-2])/[0-9]{4}" title="Use the format MM/YYYY, for example 05/2025" disabled>
                   </div>
                 </div>
                 <button class="link-btn entry-remove" type="button">Remove Education 3</button>
