@@ -512,12 +512,6 @@ a:hover {
   margin-bottom: 0.25rem;
 }
 
-/* Highlighted package ("Best value") — red outline plus a small label */
-.price-card--best {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 1px var(--navy);   /* thicker outline without shifting the contents */
-}
-
 .badge {
   display: inline-block;
   margin-left: 0.4rem;
@@ -556,7 +550,7 @@ a:hover {
   margin-top: auto;
 }
 
-/* Tiles get a blue outline when hovered (box-shadow, so nothing shifts) */
+/* Tiles get a navy outline when hovered (box-shadow, so nothing shifts) */
 .card,
 .price-card {
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -564,8 +558,8 @@ a:hover {
 
 .card:hover,
 .price-card:hover {
-  border-color: var(--navy-hover);
-  box-shadow: 0 0 0 1px var(--navy-hover);
+  border-color: var(--navy);
+  box-shadow: 0 0 0 1px var(--navy);
 }
 
 /* Package cards on the pricing page: each row (name, price, range,
