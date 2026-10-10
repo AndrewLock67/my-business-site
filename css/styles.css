@@ -802,9 +802,136 @@ textarea {
 }
 
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible {
   outline-offset: 1px;
   border-color: var(--charcoal);
+}
+
+/* Dropdowns: same box as the text fields, with a navy arrow */
+select {
+  width: 100%;
+  min-height: 2.875rem;
+  padding: 0.65rem 2.5rem 0.65rem 0.85rem;
+  border: 1px solid #9CA3AF;
+  border-radius: 0.5rem;
+  background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B2545' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 0.85rem center / 1rem no-repeat;
+  color: var(--charcoal);
+  font: inherit;
+  appearance: none;
+}
+
+/* ----- Customer details form (thank-you page) ----- */
+.onboarding {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Each group of questions, with its title */
+fieldset {
+  min-width: 0;   /* lets the group shrink to fit small phones */
+  margin: 0 0 2rem;
+  padding: 0 0 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+legend {
+  margin-bottom: 1.25rem;
+  padding: 0;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+/* Fields side by side on wider screens */
+.form-grid {
+  display: grid;
+  gap: 0 1.5rem;
+}
+
+@media (min-width: 40em) {
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .form-grid--3 { grid-template-columns: 2fr 1.5fr 1fr; }
+}
+
+/* Lines up fields in a row even when only some have a hint */
+.form-grid .field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-grid .field > input,
+.form-grid .field > select {
+  margin-top: auto;
+}
+
+/* File upload box */
+.dropzone {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1.25rem;
+  border: 2px dashed #9CA3AF;
+  border-radius: var(--radius);
+  background: var(--gray-bg);
+  text-align: center;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.dropzone svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--navy);
+}
+
+.dropzone-text {
+  margin: 0;
+  font-weight: 600;
+}
+
+.dropzone.is-dragging {
+  border-color: var(--navy);
+  background: #DCE6F2;
+}
+
+.dropzone input[type="file"] {
+  width: 100%;
+  max-width: 22rem;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.file-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.file-list:empty {
+  display: none;
+}
+
+/* Checkbox with its sentence next to it */
+.check-field {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.check-field input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-height: 0;
+  margin-top: 0.2rem;
+  padding: 0;
+  accent-color: var(--navy);
+}
+
+.check-field label {
+  font-weight: 400;
 }
 
 /* Make sure anything marked "hidden" really is hidden */

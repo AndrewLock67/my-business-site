@@ -54,7 +54,7 @@
         <ol class="grid grid--4 steps">
           <li class="step">
             <h3>Send Your Details</h3>
-            <p>Email your resume and job goals to our team.</p>
+            <p>Fill in the short form below and add your resume.</p>
           </li>
           <li class="step">
             <h3>We Review Them</h3>
@@ -70,23 +70,227 @@
           </li>
         </ol>
 
-        <div class="subsection">
-          <h3>What to Include in Your Email</h3>
-          <p>Send the following to <a href="mailto:support@jobappoffice.com?subject=My%20details%20for%20my%20JAO%20order">support@jobappoffice.com</a>:</p>
-          <ul class="check-list">
-            <li>The email address you used at checkout, so we can match your order.</li>
-            <li>Your current resume.</li>
-            <li>Your education and work experience.</li>
-            <li>Your preferred roles and industries.</li>
-            <li>Your preferred locations and other job criteria.</li>
-          </ul>
-          <a class="btn" href="mailto:support@jobappoffice.com?subject=My%20details%20for%20my%20JAO%20order">Email Your Details</a>
+      </div>
+    </section>
+
+    <!-- ===== ONBOARDING FORM (sent by Web3Forms, web3forms.com — paid plan, needed for file uploads) =====
+         Answers and uploaded files are emailed to the address linked to the access key below.
+         The access key is meant to be public — it only lets people SEND to you.
+         To change the dropdown choices, edit the <option> lines. Keep "Other" last:
+         choosing it shows the "tell us more" box underneath. -->
+    <section class="section" aria-labelledby="details-title">
+      <div class="container">
+        <div class="section-intro">
+          <h2 id="details-title">Send Your Details</h2>
+          <p>Tell us about yourself and your job goals so we can get started. All fields are required unless marked optional.</p>
+        </div>
+
+        <div class="card onboarding">
+          <form id="onboarding-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="access_key" value="879d6ad2-b53c-49a3-8fc7-3af688bc264d">
+            <input type="hidden" name="subject" value="New customer details (JAO order)">
+            <input type="hidden" name="from_name" value="JAO Website">
+
+            <!-- Spam trap: hidden from people, but spam bots tick it and get rejected. Don't remove. -->
+            <input type="checkbox" name="botcheck" class="bot-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <!-- ----- 1. Personal information ----- -->
+            <fieldset>
+              <legend>Your Information</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="ob-name">Full name</label>
+                  <input id="ob-name" name="Full name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="ob-email">Email address</label>
+                  <span class="hint" id="ob-email-hint">Use the email from checkout so we can match your order.</span>
+                  <input id="ob-email" name="email" type="email" autocomplete="email" required aria-describedby="ob-email-hint">
+                </div>
+                <div class="field">
+                  <label for="ob-phone">Phone</label>
+                  <input id="ob-phone" name="Phone" type="tel" autocomplete="tel" required>
+                </div>
+                <div class="field">
+                  <label for="ob-street">Street address</label>
+                  <input id="ob-street" name="Street address" type="text" autocomplete="street-address" required>
+                </div>
+              </div>
+              <div class="form-grid form-grid--3">
+                <div class="field">
+                  <label for="ob-city">City</label>
+                  <input id="ob-city" name="City" type="text" autocomplete="address-level2" required>
+                </div>
+                <div class="field">
+                  <label for="ob-state">State</label>
+                  <select id="ob-state" name="State" autocomplete="address-level1" required>
+                    <option value="">Choose a state</option>
+                    <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+                    <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+                    <option>District of Columbia</option><option>Florida</option><option>Georgia</option><option>Hawaii</option>
+                    <option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option>
+                    <option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option>
+                    <option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option>
+                    <option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option>
+                    <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option>
+                    <option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option>
+                    <option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+                    <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option>
+                    <option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option>
+                    <option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-zip">ZIP code</label>
+                  <input id="ob-zip" name="ZIP code" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}(-[0-9]{4})?" required>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- ----- 2. Documents ----- -->
+            <fieldset>
+              <legend>Your Documents</legend>
+              <div class="field">
+                <label for="ob-files">Resume and other documents</label>
+                <span class="hint" id="ob-files-hint">Your resume is required. You can also add a cover letter, certificates or transcripts. PDF or Word files, up to 5 MB in total.</span>
+                <div class="dropzone" id="dropzone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+                  <p class="dropzone-text">Drag and drop your files here, or choose files:</p>
+                  <input id="ob-files" name="attachment" type="file" multiple required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-describedby="ob-files-hint">
+                </div>
+                <ul class="file-list" id="file-list" aria-live="polite"></ul>
+              </div>
+            </fieldset>
+
+            <!-- ----- 3. Experience ----- -->
+            <fieldset>
+              <legend>Your Experience</legend>
+              <div class="field">
+                <label for="ob-education">Highest level of education</label>
+                <select id="ob-education" name="Education" required>
+                  <option value="">Choose one</option>
+                  <option>High school diploma or GED</option>
+                  <option>Some college</option>
+                  <option>Trade or vocational certificate</option>
+                  <option>Associate degree</option>
+                  <option>Bachelor's degree</option>
+                  <option>Master's degree</option>
+                  <option>Doctorate or professional degree</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="ob-experience">Work experience</label>
+                <span class="hint" id="ob-experience-hint">Briefly describe your recent jobs, skills and anything we should highlight.</span>
+                <textarea id="ob-experience" name="Work experience" required aria-describedby="ob-experience-hint"></textarea>
+              </div>
+            </fieldset>
+
+            <!-- ----- 4. Job goals ----- -->
+            <fieldset>
+              <legend>Your Job Goals</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="ob-role">Preferred role</label>
+                  <select id="ob-role" name="Preferred role" required data-other="ob-role-other-field">
+                    <option value="">Choose a role type</option>
+                    <option>Administrative and office support</option>
+                    <option>Customer service</option>
+                    <option>Sales</option>
+                    <option>Marketing and communications</option>
+                    <option>IT and software</option>
+                    <option>Data and analytics</option>
+                    <option>Finance and accounting</option>
+                    <option>Healthcare</option>
+                    <option>Engineering</option>
+                    <option>Education and training</option>
+                    <option>Hospitality and food service</option>
+                    <option>Operations and logistics</option>
+                    <option>Skilled trades</option>
+                    <option>Management</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-industry">Preferred industry</label>
+                  <select id="ob-industry" name="Preferred industry" required data-other="ob-industry-other-field">
+                    <option value="">Choose an industry</option>
+                    <option>Technology</option>
+                    <option>Healthcare</option>
+                    <option>Finance and insurance</option>
+                    <option>Retail</option>
+                    <option>Manufacturing</option>
+                    <option>Education</option>
+                    <option>Government and public sector</option>
+                    <option>Nonprofit</option>
+                    <option>Hospitality and tourism</option>
+                    <option>Construction and real estate</option>
+                    <option>Transportation and logistics</option>
+                    <option>Media and entertainment</option>
+                    <option>Energy and utilities</option>
+                    <option>No preference</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <!-- "Tell us more" boxes: shown only when "Other" is chosen above (see js/onboarding.js) -->
+              <div class="field other-field" id="ob-role-other-field">
+                <label for="ob-role-other">Tell us more about the role you want</label>
+                <input id="ob-role-other" name="Preferred role (details)" type="text">
+              </div>
+              <div class="field other-field" id="ob-industry-other-field">
+                <label for="ob-industry-other">Tell us more about the industry you want</label>
+                <input id="ob-industry-other" name="Preferred industry (details)" type="text">
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="ob-locations">Preferred locations</label>
+                  <span class="hint" id="ob-locations-hint">Cities, states, or "anywhere".</span>
+                  <input id="ob-locations" name="Preferred locations" type="text" required aria-describedby="ob-locations-hint">
+                </div>
+                <div class="field">
+                  <label for="ob-arrangement">Work arrangement</label>
+                  <span class="hint" id="ob-arrangement-hint">Where you'd like to work.</span>
+                  <select id="ob-arrangement" name="Work arrangement" required aria-describedby="ob-arrangement-hint">
+                    <option value="">Choose one</option>
+                    <option>No preference</option>
+                    <option>Remote</option>
+                    <option>Hybrid</option>
+                    <option>On-site</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="ob-more">Anything else? <span class="optional">(optional)</span></label>
+                <span class="hint" id="ob-more-hint">For example, salary goals, companies you like, or roles to avoid.</span>
+                <textarea id="ob-more" name="Other job criteria" aria-describedby="ob-more-hint"></textarea>
+              </div>
+            </fieldset>
+
+            <!-- ----- 5. Authorization (required by our Terms of Service) ----- -->
+            <div class="field check-field">
+              <input id="ob-authorize" name="Authorization" type="checkbox" value="Yes, I authorize JAO to submit job applications on my behalf" required>
+              <label for="ob-authorize">I authorize Job Application Office (JAO) to prepare and submit job applications on my behalf, and I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</label>
+            </div>
+
+            <p class="form-error" id="ob-error" role="alert" hidden></p>
+            <button class="btn btn--full" type="submit">Submit My Details</button>
+          </form>
+
+          <!-- Confirmation: shown in place of the form after it's sent -->
+          <div class="form-success" id="ob-success" tabindex="-1" role="region" aria-labelledby="ob-success-title" hidden>
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3 id="ob-success-title">Thank You! We Have Your Details</h3>
+            <p>Our team will review your information and contact you if we need anything else.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== QUESTIONS ===== -->
-    <section class="section" aria-labelledby="help-title">
+    <section class="section section--gray" aria-labelledby="help-title">
       <div class="container">
         <h2 id="help-title">Questions About Your Order?</h2>
         <div class="notice">
@@ -141,6 +345,8 @@
     </div>
   </footer>
   <!-- ===== FOOTER END ===== -->
+
+  <script src="js/onboarding.js" defer></script>
 
 </body>
 </html>
