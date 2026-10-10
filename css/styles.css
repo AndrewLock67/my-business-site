@@ -856,6 +856,22 @@ textarea:focus-visible {
   margin-bottom: 0;
 }
 
+/* Contact page: the three email addresses */
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li {
+  margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;   /* long email addresses never stick out on small phones */
+}
+
+.contact-list strong {
+  display: block;
+}
+
 .check-list {
   padding-left: 1.25rem;
 }

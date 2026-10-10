@@ -34,7 +34,7 @@ form.addEventListener("submit", async (event) => {
     success.hidden = false;
     success.focus();
   } catch (error) {
-    errorBox.textContent = "Sorry, your message couldn't be sent. Please check your connection and try again, or email us at hello@example.com."; // TODO: real email
+    errorBox.textContent = "Sorry, your message couldn't be sent. Please check your connection and try again, or email us at hello@jobappoffice.com.";
     errorBox.hidden = false;
   } finally {
     sendButton.disabled = false;
