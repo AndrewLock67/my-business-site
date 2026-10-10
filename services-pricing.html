@@ -165,10 +165,10 @@
           </dl>
           <p class="visually-hidden" id="calc-announce" aria-live="polite"></p>
 
-          <!-- TODO: when online checkout is set up (for example Stripe Payment Links),
-               change this link to the checkout page and delete the note below it. -->
-          <a class="btn btn--full" href="faq-contact.html#contact">Continue to Checkout</a>
-          <p class="calc-note">Online checkout is coming soon. For now, this button takes you to our contact form so we can set up your order.</p>
+          <!-- The checkout link is set by js/pricing.js (Stripe Payment Link for the chosen package).
+               The href below is the Growth link, used if the script doesn't load (the default quantity is 26). -->
+          <a class="btn btn--full" id="checkout-btn" href="https://buy.stripe.com/test_7sY14fbu411c0Bj0aebbG02">Continue to Checkout</a>
+          <p class="calc-note">Secure checkout by Stripe. On the next page, set the quantity to <strong id="out-qty">26</strong> applications.</p>
           <div class="info">
             <!-- ===== (i) "HOW YOUR TOTAL WORKS" POP-UP =====
                  Opens on hover, tap/click, or keyboard. Edit the examples below if prices change. -->

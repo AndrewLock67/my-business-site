@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You for Your Order | Job Application Office (JAO)</title>
+  <!-- Customers only reach this page after paying (Stripe sends them here), so keep it out of search results -->
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== HEADER START (copy changes to every page) ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="assets/img/jao-logo.svg" alt="Job Application Office (JAO) home" width="240" height="90">
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services-pricing.html">Services &amp; Pricing</a></li>
+          <li><a href="faq-contact.html">FAQ &amp; Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn header-cta" href="services-pricing.html#calculator">Find My Next Job</a>
+    </div>
+  </header>
+  <!-- ===== HEADER END ===== -->
+
+  <main id="main">
+
+    <!-- ===== ORDER CONFIRMED =====
+         Stripe sends customers here after a successful payment
+         (set in each Stripe Payment Link: After payment → Redirect to https://jobappoffice.com/thank-you). -->
+    <section class="hero">
+      <div class="container">
+        <h1>Thank You for Your Order</h1>
+        <p class="hero-lead">Your payment was successful. Stripe has emailed your receipt to the address you used at checkout.</p>
+      </div>
+    </section>
+
+    <!-- ===== NEXT STEPS ===== -->
+    <section class="section section--gray" aria-labelledby="next-title">
+      <div class="container">
+        <div class="section-intro">
+          <h2 id="next-title">What Happens Next?</h2>
+        </div>
+        <ol class="grid grid--4 steps">
+          <li class="step">
+            <h3>Send Your Details</h3>
+            <p>Email your resume and job goals to our team.</p>
+          </li>
+          <li class="step">
+            <h3>We Review Them</h3>
+            <p>We confirm your goals and job criteria.</p>
+          </li>
+          <li class="step">
+            <h3>We Get to Work</h3>
+            <p>We find roles and prepare your applications.</p>
+          </li>
+          <li class="step">
+            <h3>Track Your Progress</h3>
+            <p>We keep every application organized.</p>
+          </li>
+        </ol>
+
+        <div class="subsection">
+          <h3>What to Include in Your Email</h3>
+          <p>Send the following to <a href="mailto:support@jobappoffice.com?subject=My%20details%20for%20my%20JAO%20order">support@jobappoffice.com</a>:</p>
+          <ul class="check-list">
+            <li>The email address you used at checkout, so we can match your order.</li>
+            <li>Your current resume.</li>
+            <li>Your education and work experience.</li>
+            <li>Your preferred roles and industries.</li>
+            <li>Your preferred locations and other job criteria.</li>
+          </ul>
+          <a class="btn" href="mailto:support@jobappoffice.com?subject=My%20details%20for%20my%20JAO%20order">Email Your Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUESTIONS ===== -->
+    <section class="section" aria-labelledby="help-title">
+      <div class="container">
+        <h2 id="help-title">Questions About Your Order?</h2>
+        <div class="notice">
+          <p>Email <a href="mailto:support@jobappoffice.com">support@jobappoffice.com</a> about orders, refunds and billing, or see our <a href="faq-contact.html">FAQ</a>.</p>
+          <p>Please review our <a href="terms.html">Terms of Service</a>, <a href="privacy.html">Privacy Policy</a>, and <a href="refunds.html">Refund &amp; Cancellation Policy</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER START (copy changes to every page) ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-logo" href="index.html">
+            <img src="assets/img/jao-logo.svg" alt="Job Application Office (JAO) home" width="240" height="90" loading="lazy">
+          </a>
+          <p class="space-above">We handle the applications so you don't have to</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services-pricing.html">Services &amp; Pricing</a></li>
+            <li><a href="faq-contact.html">FAQ &amp; Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Policies</h2>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="refunds.html">Refund &amp; Cancellation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:hello@jobappoffice.com">hello@jobappoffice.com</a></li>
+            <li><a href="mailto:support@jobappoffice.com">support@jobappoffice.com</a></li>
+            <li><a href="faq-contact.html#contact">Contact form</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>JAO helps with job discovery and applications. Interviews and job offers are not guaranteed. Outcomes depend on employer decisions, your qualifications, and market conditions.</p>
+        <p>&copy; 2026 Job Application Office (JAO). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== FOOTER END ===== -->
+
+</body>
+</html>
