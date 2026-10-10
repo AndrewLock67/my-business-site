@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="stylesheet" href="css/styles.css?v=7">
 </head>
 <body>
 
@@ -111,10 +111,10 @@
                   <input id="ob-email" name="email" type="email" autocomplete="email" required aria-describedby="ob-email-hint">
                 </div>
               </div>
-              <div class="field">
-                <span class="label" id="ob-phone-label">Phone <span class="req" aria-hidden="true">*</span></span>
-                <div class="phone-row" role="group" aria-labelledby="ob-phone-label">
-                  <select id="ob-phone-code" name="Phone country code" aria-label="Country code" required>
+              <div class="phone-row">
+                <div class="field">
+                  <label for="ob-phone-code">Country code <span class="req" aria-hidden="true">*</span></label>
+                  <select id="ob-phone-code" name="Phone country code" required>
                     <option value="+1 (United States)" selected>United States (+1)</option>
                     <option value="+93 (Afghanistan)">Afghanistan (+93)</option>
                     <option value="+355 (Albania)">Albania (+355)</option>
@@ -236,7 +236,10 @@
                     <option value="+263 (Zimbabwe)">Zimbabwe (+263)</option>
                     <option value="Other (included in number)">Other (add code to number)</option>
                   </select>
-                  <input id="ob-phone" name="Phone" type="tel" autocomplete="tel-national" aria-label="Phone number" required>
+                </div>
+                <div class="field">
+                  <label for="ob-phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                  <input id="ob-phone" name="Phone" type="tel" autocomplete="tel-national" required>
                 </div>
               </div>
               <div class="form-grid">
@@ -455,6 +458,7 @@
                       <option>Master&#39;s</option>
                       <option>PhD</option>
                       <option>Professional</option>
+                      <option>N/A</option>
                     </select>
                   </div>
                   <div class="field">
@@ -491,6 +495,7 @@
                       <option>Master&#39;s</option>
                       <option>PhD</option>
                       <option>Professional</option>
+                      <option>N/A</option>
                     </select>
                   </div>
                   <div class="field">
@@ -528,6 +533,7 @@
                       <option>Master&#39;s</option>
                       <option>PhD</option>
                       <option>Professional</option>
+                      <option>N/A</option>
                     </select>
                   </div>
                   <div class="field">

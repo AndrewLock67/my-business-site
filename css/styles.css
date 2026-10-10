@@ -865,18 +865,11 @@ legend {
   font-weight: 700;
 }
 
-/* A label for a group of boxes (looks like a normal label) */
-.label {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-weight: 600;
-}
-
 /* Phone: country code dropdown next to the number */
 .phone-row {
   display: grid;
   grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
-  gap: 0.5rem;
+  gap: 0 1rem;
 }
 
 @media (max-width: 30em) {
