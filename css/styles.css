@@ -350,7 +350,8 @@ a:hover {
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 64em) {
+/* Four across only when there's room (about 1120px+); 2 × 2 on small laptops and tablets */
+@media (min-width: 70em) {
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
 }
 
@@ -493,6 +494,7 @@ a:hover {
 .price-range {
   margin-bottom: 0.25rem;
   font-weight: 600;
+  text-wrap: balance;   /* "For orders of / 1–10 applications" instead of a lone word */
 }
 
 .price-card .btn {
