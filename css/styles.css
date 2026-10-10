@@ -154,8 +154,26 @@ a:hover {
 }
 
 .section-intro {
-  max-width: 42rem;
   margin-bottom: 2.5rem;
+}
+
+/* Intro text stays a comfortable width; the heading line spans the full width */
+.section-intro p {
+  max-width: 42rem;
+}
+
+/* Thin line under each section heading (like CDC.gov).
+   Not used on the navy call-to-action band or the numbered policy sections. */
+.section:not(.cta-band) h2 {
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #CBD5E1;
+}
+
+.section:not(.cta-band) .policy h2 {
+  padding-bottom: 0;
+  margin-bottom: 0.75rem;
+  border-bottom: 0;
 }
 
 .center {
