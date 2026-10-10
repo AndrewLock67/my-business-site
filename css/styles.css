@@ -834,6 +834,64 @@ textarea:focus-visible {
   max-width: 44rem;
 }
 
+/* Long policy pages: clear spacing between numbered sections */
+.policy h2 {
+  margin-top: 2.75rem;
+  font-size: 1.5rem;
+}
+
+.policy h3 {
+  margin-top: 1.5rem;
+}
+
+.policy ul {
+  padding-left: 1.25rem;
+}
+
+.policy li {
+  margin-bottom: 0.4rem;
+}
+
+.policy .notice {
+  margin-block: 2rem;
+}
+
+.policy .glance-title {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+/* Clickable table of contents */
+.toc {
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.policy .toc h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.5rem;
+  columns: 2 16rem;     /* two columns when there's room */
+  column-gap: 2rem;
+}
+
+.toc li {
+  margin-bottom: 0.25rem;
+}
+
+/* Yellow highlight on text that still needs to be filled in */
+mark.fill {
+  padding: 0 0.2rem;
+  background: #FFF3B0;
+  color: var(--charcoal);
+}
+
 /* When used on a .container, keep it lined up with the rest of the page */
 .container.prose {
   max-width: var(--max-width);
