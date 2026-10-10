@@ -817,6 +817,7 @@ textarea:focus-visible {
   max-width: 36rem;
   margin-inline: auto;
   color: var(--white);
+  text-wrap: balance;   /* centered text splits into even lines (no word left alone) */
 }
 
 /* On the navy band, buttons are white with navy text so they stand out */
@@ -840,11 +841,6 @@ textarea:focus-visible {
 
 
 /* ===== 15. SMALL PRINT / NOTICES ===== */
-.disclaimer {
-  padding-block: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-
 .notice {
   padding: 1.25rem 1.5rem;
   border-left: 4px solid var(--navy);
@@ -957,6 +953,7 @@ mark.fill {
 .site-footer {
   padding-block: 3rem 2rem;
   background: var(--navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);   /* separates it from the navy band above */
   color: var(--white);
   font-size: 0.9375rem;
 }
@@ -1008,11 +1005,20 @@ mark.fill {
   outline-color: var(--white);
 }
 
+/* Bottom of the footer: the disclaimer, then the copyright line */
 .footer-bottom {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
-  font-size: 0.875rem;
+}
+
+.footer-bottom p {
+  max-width: none;
+  margin: 0 0 0.75rem;
+}
+
+.footer-bottom p:last-child {
+  margin-bottom: 0;
 }
 
 @media (min-width: 40em) {
