@@ -269,6 +269,38 @@ a:hover {
   border-bottom-color: var(--red);
 }
 
+/* Phones: keep the header to two short rows (logo + button, then the 3 links) */
+@media (max-width: 39.99em) {
+  .header-inner {
+    gap: 0.25rem 0.75rem;
+    padding-block: 0.625rem 0.25rem;
+  }
+  .logo img {
+    width: 7.25rem;
+  }
+  .header-cta {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.875rem;
+  }
+  .main-nav ul {
+    justify-content: space-between;
+    gap: 0 0.75rem;
+  }
+  .main-nav a {
+    font-size: 0.9375rem;
+  }
+}
+
+/* The narrowest phones (about 350px and below) */
+@media (max-width: 22em) {
+  .main-nav ul {
+    gap: 0 0.5rem;
+  }
+  .main-nav a {
+    font-size: 0.875rem;
+  }
+}
+
 @media (min-width: 52em) {
   .main-nav {
     order: 0;
