@@ -21,8 +21,9 @@
   --gray-bg: #EAEFF5;    /* alternating section background */
   --border: #E5E7EB;     /* card outlines, dividers */
 
-  /* Fonts */
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Fonts (same pairing as CDC.gov: Poppins headings, Nunito text) */
+  --font: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Poppins", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Spacing and shapes */
   --max-width: 72rem;    /* widest the content gets */
@@ -32,13 +33,31 @@
 }
 
 
-/* ===== 2. FONT FILE ===== */
+/* ===== 2. FONT FILES (free Google Fonts, stored in the project) ===== */
+/* Nunito: all body text. One file covers weights 400 to 700. */
 @font-face {
-  font-family: "Inter";
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url("../assets/fonts/inter.woff2") format("woff2");
+  src: url("../assets/fonts/nunito.woff2") format("woff2");
+}
+
+/* Poppins: headings. Regular for page and section titles, semibold for smaller headings. */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/poppins-600.woff2") format("woff2");
 }
 
 
@@ -56,7 +75,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  font-size: 1.0625rem;
+  font-size: 1.125rem;   /* 18px, same as CDC.gov */
   line-height: 1.6;
   color: var(--charcoal);
   background: var(--white);
@@ -71,11 +90,20 @@ svg {
 }
 
 h1, h2, h3 {
-  line-height: 1.2;
+  font-family: var(--font-heading);
+  line-height: 1.25;
   margin: 0 0 0.75rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  font-weight: 400;     /* page and section titles: regular, like CDC.gov */
   text-wrap: balance;   /* spreads words evenly across lines (no lone last word) */
+}
+
+/* Smaller headings (tile titles, footer, policy sections) are semibold so they're easy to scan */
+h3,
+.site-footer h2,
+.glance-title,
+.toc h2,
+.policy h2 {
+  font-weight: 600;
 }
 
 h1 { font-size: clamp(2.1rem, 6vw, 2.9rem); }
