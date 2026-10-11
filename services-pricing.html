@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Services &amp; Pricing | Job Application Office (JAO)</title>
-  <meta name="description" content="Compare Job Application Office (JAO) packages and per-application prices. Resume customization, job submissions and application tracking, clearly priced.">
+  <meta name="description" content="Compare Job Application Office (JAO) packages: 10, 25 or 50 tailored job applications, with your approval on every role and an Application Tracker. Clear, one-time prices.">
   <!-- ===== SEARCH & SOCIAL SHARING ===== -->
   <link rel="canonical" href="https://jobappoffice.com/services-pricing">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Job Application Office (JAO)">
   <meta property="og:title" content="Services &amp; Pricing | Job Application Office (JAO)">
-  <meta property="og:description" content="Compare Job Application Office (JAO) packages and per-application prices. Resume customization, job submissions and application tracking, clearly priced.">
+  <meta property="og:description" content="Compare Job Application Office (JAO) packages: 10, 25 or 50 tailored job applications, with your approval on every role and an Application Tracker. Clear, one-time prices.">
   <meta property="og:url" content="https://jobappoffice.com/services-pricing">
   <meta property="og:image" content="https://jobappoffice.com/assets/img/social-share.jpg">
   <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
   <link rel="icon" href="assets/img/favicon.svg?v=2" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=17">
+  <link rel="stylesheet" href="css/styles.css?v=18">
 </head>
 <body>
 
@@ -39,7 +39,7 @@
           <li><a href="faq-contact.html">FAQ &amp; Contact</a></li>
         </ul>
       </nav>
-      <a class="btn header-cta" href="services-pricing.html#calculator">Start My Applications</a>
+      <a class="btn header-cta" href="services-pricing.html#packages">Start My Applications</a>
     </div>
   </header>
   <!-- ===== HEADER END ===== -->
@@ -53,7 +53,7 @@
           <h1>Job Applications, Handled From Start to Finish</h1>
           <p class="hero-lead">Get practical support throughout your job search. The Job Application Office (JAO) helps you find suitable roles, customize your application materials, submit applications, and track your progress.</p>
           <p>Choose the package that fits your needs and see your costs before you buy.</p>
-          <a class="btn" href="#calculator">Start My Applications</a>
+          <a class="btn" href="#packages">Start My Applications</a>
           <p class="hero-tagline">Clear pricing. Personalized applications. A more manageable job search.</p>
         </div>
         <img class="hero-img"
@@ -106,89 +106,72 @@
       </div>
     </section>
 
-    <!-- ===== PACKAGES + CALCULATOR =====
-         Prices also appear in index.html, faq-contact.html and js/pricing.js.
-         See EDITING-GUIDE.md before changing them. -->
+    <!-- ===== PACKAGES + ADD-ONS =====
+         Prices also appear in index.html (home pricing preview), faq-contact.html (FAQ) and refunds.html (examples).
+         Each "Choose" button links to that package's Stripe Payment Link (fixed quantity, add-ons offered at checkout).
+         TODO before going live: replace each STRIPE_... link below with the real Payment Link URL. -->
     <section class="section" id="packages" aria-labelledby="packages-title">
       <div class="container">
         <div class="section-intro">
           <h2 id="packages-title">Choose Your Application Package</h2>
-          <p>Select the quantity that matches your job search goals. The more applications you purchase in a qualifying package, the lower your price per application.</p>
+          <p>Every package includes roles matched to your goals, your approval on every role, tailored materials and your Application Tracker. Larger packages lower your price per application.</p>
         </div>
 
-        <ul class="grid grid--4 price-grid">
+        <ul class="grid grid--3 price-grid">
           <li class="price-card">
-            <h3>Starter</h3>
-            <p class="price">$5.00 <span class="price-unit">/ application</span></p>
-            <p class="price-range">For orders of 1–10 applications</p>
-            <p>A straightforward way to get started with personalized application support.</p>
-            <a class="btn btn--outline" href="#calculator" data-qty="1">Choose Starter</a>
+            <h3>Kickstart</h3>
+            <p class="price">$89</p>
+            <p class="price-range">10 tailored applications</p>
+            <p class="price-each">$8.90 per application</p>
+            <p>A focused start for a targeted search.</p>
+            <a class="btn btn--outline" href="STRIPE_KICKSTART">Choose Kickstart</a>
           </li>
           <li class="price-card">
-            <h3>Value</h3>
-            <p class="price">$4.75 <span class="price-unit">/ application</span></p>
-            <p class="price-range">For orders of 11–25 applications</p>
-            <p>Save 5% on every application</p>
-            <a class="btn btn--outline" href="#calculator" data-qty="11">Choose Value</a>
+            <h3>Job Search Sprint <span class="badge">Most popular</span></h3>
+            <p class="price">$189</p>
+            <p class="price-range">25 tailored applications</p>
+            <p class="price-each">$7.56 per application &middot; Save 15%</p>
+            <p>The right pace for an active job search.</p>
+            <a class="btn" href="STRIPE_SPRINT">Choose Sprint</a>
           </li>
           <li class="price-card">
-            <h3>Growth</h3>
-            <p class="price">$4.50 <span class="price-unit">/ application</span></p>
-            <p class="price-range">For orders of 26–75 applications</p>
-            <p>Save 10% on every application</p>
-            <a class="btn btn--outline" href="#calculator" data-qty="26">Choose Growth</a>
-          </li>
-          <li class="price-card">
-            <h3>Pro <span class="badge">Best value</span></h3>
-            <p class="price">$4.25 <span class="price-unit">/ application</span></p>
-            <p class="price-range">For orders of 76+ applications</p>
-            <p>Save 15% on every application</p>
-            <a class="btn btn--outline" href="#calculator" data-qty="76">Choose Pro</a>
+            <h3>Full Campaign <span class="badge">Best value</span></h3>
+            <p class="price">$349</p>
+            <p class="price-range">50 tailored applications</p>
+            <p class="price-each">$6.98 per application &middot; Save 22%</p>
+            <p>Maximum reach for a broad or competitive search.</p>
+            <a class="btn btn--outline" href="STRIPE_CAMPAIGN">Choose Campaign</a>
           </li>
         </ul>
 
-        <!-- ===== PRICE CALCULATOR ===== -->
-        <div class="calculator" id="calculator">
-          <h3>Calculate Your Total</h3>
-          <div class="field">
-            <label for="qty">How many applications?</label>
-            <span class="hint" id="qty-hint">Your package and discount are chosen automatically.</span>
-            <input id="qty" type="number" inputmode="numeric" min="1" step="1" value="26" aria-describedby="qty-hint calc-message">
-            <p class="calc-message" id="calc-message"></p>
-          </div>
-
-          <dl class="calc-results">
-            <div><dt>Package</dt> <dd id="out-package">—</dd></div>
-            <div><dt>Price per application</dt> <dd id="out-each">—</dd></div>
-            <div><dt>You save (vs. Starter)</dt> <dd id="out-save">—</dd></div>
-            <div class="calc-total"><dt>Total</dt> <dd id="out-total">—</dd></div>
-          </dl>
-          <p class="visually-hidden" id="calc-announce" aria-live="polite"></p>
-
-          <!-- The checkout link is set by js/pricing.js (Stripe Payment Link for the chosen package).
-               The href below is the Growth link, used if the script doesn't load (the default quantity is 26). -->
-          <a class="btn btn--full" id="checkout-btn" href="https://buy.stripe.com/test_7sY14fbu411c0Bj0aebbG02">Continue to Checkout</a>
+        <div class="cta-center">
           <ul class="guarantee"><li>Unused applications refundable for 6 months</li><li>No subscription</li><li>Never pay for applications we can&#39;t complete</li></ul>
-          <p class="calc-note">Secure checkout by Stripe. On the next page, set the quantity to <strong id="out-qty">26</strong> applications.</p>
-          <div class="info">
-            <!-- ===== (i) "HOW YOUR TOTAL WORKS" POP-UP =====
-                 Opens on hover, tap/click, or keyboard. Edit the examples below if prices change. -->
-            <button class="info-btn" type="button" aria-expanded="false" aria-controls="total-info">
-              <span class="info-label">How is my total calculated?</span>
-              <span aria-hidden="true">i</span>
-            </button>
-            <div class="info-pop" id="total-info" role="note">
-              <p><strong>How your total is calculated</strong></p>
-              <p>Number of applications × the price per application for your package. For example:</p>
-              <ul class="example-list">
-                <li>5 applications × $5.00 = $25.00</li>
-                <li>11 applications × $4.75 = $52.25</li>
-                <li>26 applications × $4.50 = $117.00</li>
-                <li>76 applications × $4.25 = $323.00</li>
-              </ul>
-              <p>These examples show package totals before any additional charges, if applicable. Your checkout should display the final amount and applicable discount before you pay.</p>
-            </div>
+          <p class="quote-note">Applying for more than 50 roles? <a href="faq-contact.html#contact">Contact us for a custom quote</a>.</p>
+        </div>
+
+        <!-- ===== ADD-ONS (offered at Stripe checkout) ===== -->
+        <div class="subsection" id="add-ons">
+          <div class="section-intro">
+            <h3>Add to Your Order</h3>
+            <p>Choose any of these at checkout.</p>
           </div>
+          <ul class="grid grid--3">
+            <li class="card">
+              <h3>Resume Refresh</h3>
+              <p class="addon-price">$79</p>
+              <p>Your professionally polished master resume, yours to keep and use anywhere.</p>
+            </li>
+            <li class="card">
+              <h3>Tailored Cover Letters</h3>
+              <p class="addon-price">From $19</p>
+              <p>A cover letter written for every application: $19 Kickstart, $39 Sprint, $69 Campaign.</p>
+            </li>
+            <li class="card">
+              <h3>LinkedIn Refresh</h3>
+              <p class="addon-price">$49</p>
+              <p>An updated headline, summary and experience section that recruiters notice.</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -253,7 +236,7 @@
       <div class="container">
         <h2 id="ready-title">Ready to Make Your Job Search Easier?</h2>
         <p>Choose your application package and take the next step toward a more organized job search.</p>
-        <a class="btn" href="#calculator">Start My Applications</a>
+        <a class="btn" href="#packages">Start My Applications</a>
       </div>
     </section>
 
@@ -303,6 +286,5 @@
   </footer>
   <!-- ===== FOOTER END ===== -->
 
-  <script src="js/pricing.js?v=2" defer></script>
 </body>
 </html>

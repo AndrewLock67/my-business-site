@@ -522,6 +522,11 @@ a:hover {
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
 }
 
+/* Three across on tablets and up (packages, add-ons) */
+@media (min-width: 52em) {
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
 .card {
   padding: 1.5rem;
   background: var(--white);
@@ -659,8 +664,28 @@ a:hover {
   text-wrap: balance;   /* "For orders of / 1–10 applications" instead of a lone word */
 }
 
+/* "$7.56 per application · Save 15%" */
+.price-each {
+  margin-bottom: 0.75rem;
+  color: var(--heading);
+  font-weight: 600;
+}
+
 .price-card .btn {
   margin-top: auto;
+}
+
+/* "Applying for more than 50 roles? Contact us…" under the packages */
+.quote-note {
+  margin: 1.25rem 0 0;
+}
+
+/* Add-on prices ("$79", "From $19") */
+.addon-price {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 /* Tiles get a navy outline when hovered (box-shadow, so nothing shifts) */
@@ -675,166 +700,24 @@ a:hover {
   box-shadow: 0 0 0 1px var(--navy);
 }
 
-/* Package cards on the pricing page: each row (name, price, range,
-   description, button) lines up across all four cards, even when
+/* Package cards: each row (name, price, applications, per-application
+   price, description, button) lines up across all three cards, even when
    one card's text wraps onto more lines than the others. */
 @supports (grid-template-rows: subgrid) {
   .price-grid .price-card {
     display: grid;
-    grid-row: span 5;
+    grid-row: span 6;
     grid-template-rows: subgrid;
     row-gap: 0;
+  }
+  /* Home page preview cards have 4 rows (no description or button) */
+  .price-grid--preview .price-card {
+    grid-row: span 4;
   }
   .price-grid .price-card .btn {
     margin-top: 0;
     align-self: end;
   }
-}
-
-/* The price calculator box */
-.calculator {
-  max-width: 40rem;
-  margin: 3rem auto 0;
-  padding: clamp(1.25rem, 4vw, 2rem);
-  background: var(--white);
-  border: 2px solid var(--navy);
-  border-radius: var(--radius);
-}
-
-.calculator h3 {
-  font-size: 1.35rem;
-}
-
-/* "How is my total calculated? (i)" — bottom right of the calculator.
-   The pop-up opens upward from it. */
-.info {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 0.5rem;
-}
-
-.info-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 2.75rem;          /* big enough to tap */
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--charcoal);
-  font: inherit;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-
-.info-btn:hover,
-.info.is-open .info-btn {
-  color: var(--charcoal);
-}
-
-.info-label {
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 0.2em;
-}
-
-/* The round (i) */
-.info-btn span[aria-hidden] {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-  font: 700 0.875rem/1 var(--font);
-}
-
-.info-btn:hover span[aria-hidden],
-.info.is-open .info-btn span[aria-hidden] {
-  background: var(--navy);
-  border-color: var(--navy);
-  color: var(--white);
-}
-
-.info-pop {
-  display: none;
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  z-index: 10;
-  width: min(26rem, 100%);
-  padding: 1rem 1.25rem;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.15);
-  text-align: left;
-}
-
-.info-pop p:last-child {
-  margin-bottom: 0;
-}
-
-/* Show the pop-up on mouse hover, or after a tap/click/keyboard press */
-.info-btn:hover + .info-pop,
-.info-pop:hover,
-.info.is-open .info-pop {
-  display: block;
-}
-
-/* After Esc, keep it closed until the mouse moves away */
-.info.is-dismissed .info-pop {
-  display: none;
-}
-
-.calc-results {
-  display: grid;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
-  padding: 1.25rem 0;
-  border-block: 1px solid var(--border);
-}
-
-/* Each row: label on the left, amount on the right */
-.calc-results div {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.calc-total {
-  margin-top: 0.5rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border);
-}
-
-.calc-results dt {
-  color: var(--charcoal);
-}
-
-.calc-results dd {
-  margin: 0;
-  font-weight: 600;
-  text-align: right;
-}
-
-.calc-total dt,
-.calc-total dd {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--charcoal);
-}
-
-.calc-message {
-  margin: 0.5rem 0 0;
-  color: var(--error);
-  font-weight: 600;
-}
-
-.calc-note {
-  margin: 1rem 0 0;
 }
 
 /* Refund guarantee next to buy buttons: a navy check before each promise.
@@ -884,12 +767,6 @@ a:hover {
     align-items: flex-start;
     text-align: left;
   }
-}
-
-/* In the calculator: one promise per line */
-.calculator .guarantee {
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 /* Home hero: a strip across the full width, under the text and photo */
