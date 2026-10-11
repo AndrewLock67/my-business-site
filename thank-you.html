@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/favicon.svg?v=2" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=16">
+  <link rel="stylesheet" href="css/styles.css?v=17">
 </head>
 <body>
 
@@ -413,7 +413,31 @@
               </div>
             </fieldset>
 
-            <!-- ----- 2. Documents ----- -->
+            <!-- ----- 2. Job-search email =====
+                 Customers create their own Gmail for applications and forward a copy to JAO.
+                 intake@jobappoffice.com must exist in Cloudflare Email Routing (Email → Email Routing → Routing rules).
+                 Employers never see the intake address. The email_off comments stop Cloudflare from hiding the address. -->
+            <fieldset>
+              <legend>Your Job-Search Email</legend>
+              <p class="hint">We apply using a free Gmail address that you create and own. Employers only see this address, and forwarding a copy to us lets us handle verification emails right away, so we never need your password.</p>
+              <ol class="setup-steps">
+                <li><strong>Create a new Gmail account</strong> at <a href="https://accounts.google.com/signup" target="_blank" rel="noopener">accounts.google.com/signup</a> using your real name, for example firstname.lastname.careers@gmail.com.</li>
+                <li><strong>Add our forwarding address.</strong> In Gmail on a computer, open Settings (the gear icon) &rarr; See all settings &rarr; Forwarding and POP/IMAP &rarr; Add a forwarding address, and enter <code><!--email_off-->intake@jobappoffice.com<!--/email_off--></code>.</li>
+                <li><strong>We confirm it on our side</strong> and email you, usually within one business day. We can start finding your roles in the meantime.</li>
+                <li><strong>Finish up.</strong> Go back to the same settings page, choose "Forward a copy of incoming mail to <!--email_off-->intake@jobappoffice.com<!--/email_off-->" and "keep Gmail's copy in the Inbox", then click Save Changes.</li>
+              </ol>
+              <div class="field">
+                <label for="ob-jobemail">Your new job-search Gmail address <span class="req" aria-hidden="true">*</span></label>
+                <span class="hint" id="ob-jobemail-hint">We'll use this on your applications. Employer replies arrive here, so add it to the Gmail app on your phone.</span>
+                <input id="ob-jobemail" name="Job-search Gmail" type="email" pattern=".+@(gmail|googlemail)\.com" title="Please enter a Gmail address ending in @gmail.com" required aria-describedby="ob-jobemail-hint">
+              </div>
+              <div class="field check-field">
+                <input id="ob-forwarding" name="Forwarding" type="checkbox" value="Forwarding address added in Gmail" required>
+                <label for="ob-forwarding">I've added <!--email_off-->intake@jobappoffice.com<!--/email_off--> as a forwarding address (step 2). <span class="req" aria-hidden="true">*</span></label>
+              </div>
+            </fieldset>
+
+            <!-- ----- 3. Documents ----- -->
             <fieldset>
               <legend>Your Documents</legend>
               <div class="field">
@@ -428,7 +452,7 @@
               </div>
             </fieldset>
 
-            <!-- ----- 3. Education =====
+            <!-- ----- 4. Education =====
                  Education 2 and 3 start hidden. The "Add another education"
                  button shows them one at a time (up to 3), see js/onboarding.js. -->
             <fieldset>
@@ -551,7 +575,7 @@
               <button class="btn btn--outline add-entry" type="button">+ Add another education</button>
             </fieldset>
 
-            <!-- ----- 4. Work experience =====
+            <!-- ----- 5. Work experience =====
                  Work Experience 2 and 3 start hidden. The "Add another work experience"
                  button shows them one at a time (up to 3), see js/onboarding.js. -->
             <fieldset>
@@ -659,7 +683,7 @@
               <button class="btn btn--outline add-entry" type="button">+ Add another work experience</button>
             </fieldset>
 
-            <!-- ----- 5. Job goals ----- -->
+            <!-- ----- 6. Job goals ----- -->
             <fieldset>
               <legend>Your Job Goals</legend>
               <div class="form-grid">
@@ -751,7 +775,94 @@
               </div>
             </fieldset>
 
-            <!-- ----- 6. Authorization (required by our Terms of Service) ----- -->
+            <!-- ----- 7. Common application questions =====
+                 Answers to the extra questions employers ask, so applications never pause to ask the customer.
+                 Voluntary self-identification answers (gender, race, veteran, disability) are NOT collected here. -->
+            <fieldset>
+              <legend>Common Application Questions</legend>
+              <p class="hint">Employers often ask these on their forms. Answering now means we never have to pause your applications to ask you.</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="ob-authorized">Are you legally authorized to work in the country where you're applying? <span class="req" aria-hidden="true">*</span></label>
+                  <select id="ob-authorized" name="Authorized to work" required>
+                    <option value="">Choose one</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-sponsorship">Will you now or in the future need visa sponsorship? <span class="req" aria-hidden="true">*</span></label>
+                  <select id="ob-sponsorship" name="Needs visa sponsorship" required>
+                    <option value="">Choose one</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-salary">Desired salary or pay <span class="req" aria-hidden="true">*</span></label>
+                  <input id="ob-salary" name="Desired salary" type="text" placeholder="e.g. $55,000–$65,000, $25/hour, or Open" required>
+                </div>
+                <div class="field">
+                  <label for="ob-start">Earliest start date <span class="req" aria-hidden="true">*</span></label>
+                  <input id="ob-start" name="Earliest start date" type="text" placeholder="e.g. Immediately, 2 weeks' notice, 06/2026" required>
+                </div>
+                <div class="field">
+                  <label for="ob-relocate">Willing to relocate? <span class="req" aria-hidden="true">*</span></label>
+                  <select id="ob-relocate" name="Willing to relocate" required>
+                    <option value="">Choose one</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                    <option>Depends on the role</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-travel">Willing to travel for work? <span class="req" aria-hidden="true">*</span></label>
+                  <select id="ob-travel" name="Willing to travel" required>
+                    <option value="">Choose one</option>
+                    <option>No</option>
+                    <option>Up to 25%</option>
+                    <option>Up to 50%</option>
+                    <option>More than 50%</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-license">Do you have a valid driver's license? <span class="req" aria-hidden="true">*</span></label>
+                  <select id="ob-license" name="Driver's license" required>
+                    <option value="">Choose one</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-selfid">Voluntary self-identification questions <span class="req" aria-hidden="true">*</span></label>
+                  <span class="hint" id="ob-selfid-hint">Optional questions about gender, race or ethnicity, veteran status and disability.</span>
+                  <select id="ob-selfid" name="Self-identification questions" required aria-describedby="ob-selfid-hint">
+                    <option value="">Choose one</option>
+                    <option>Answer "I don't wish to answer"</option>
+                    <option>Contact me so I can give my answers privately</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ob-linkedin">LinkedIn profile <span class="optional">(optional)</span></label>
+                  <input id="ob-linkedin" name="LinkedIn" type="url" placeholder="https://www.linkedin.com/in/…">
+                </div>
+                <div class="field">
+                  <label for="ob-portfolio">Portfolio or website <span class="optional">(optional)</span></label>
+                  <input id="ob-portfolio" name="Portfolio or website" type="url" placeholder="https://…">
+                </div>
+              </div>
+              <div class="field">
+                <label for="ob-certs">Licenses and certifications <span class="optional">(optional)</span></label>
+                <input id="ob-certs" name="Licenses and certifications" type="text" placeholder="e.g. CPR certified, CompTIA A+, forklift license">
+              </div>
+              <div class="field">
+                <label for="ob-references">References <span class="optional">(optional)</span></label>
+                <span class="hint" id="ob-references-hint">Name, relationship, and phone or email for each. Only include people who've agreed to be contacted.</span>
+                <textarea id="ob-references" name="References" aria-describedby="ob-references-hint"></textarea>
+              </div>
+            </fieldset>
+
+            <!-- ----- 8. Authorization (required by our Terms of Service) ----- -->
             <div class="field check-field">
               <input id="ob-authorize" name="Authorization" type="checkbox" value="Yes, I authorize JAO to submit job applications on my behalf to roles I approve" required>
               <label for="ob-authorize">I authorize Job Application Office (JAO) to prepare and submit job applications on my behalf to the roles I approve, and I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>. <span class="req" aria-hidden="true">*</span></label>

@@ -1084,6 +1084,26 @@ fieldset > .hint {
   margin: -0.5rem 0 1.25rem;
 }
 
+/* Numbered setup steps (job-search email, thank-you page) */
+.setup-steps {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+}
+
+.setup-steps li {
+  margin-bottom: 0.6rem;
+}
+
+/* An address or value to copy exactly */
+code {
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  background: var(--gray-bg);
+  font: inherit;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
 /* Education and work experience boxes (thank-you page) */
 .entry + .entry {
   margin-top: 1.5rem;
