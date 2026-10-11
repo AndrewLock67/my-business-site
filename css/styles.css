@@ -311,7 +311,8 @@ a:hover {
 }
 
 .logo img {
-  width: 8.5rem;
+  width: auto;
+  height: 3rem;   /* sized by height so the navy square stays the same size */
 }
 
 .header-cta {
@@ -361,7 +362,7 @@ a:hover {
     padding-block: 0.625rem 0.25rem;
   }
   .logo img {
-    width: 7.25rem;
+    height: 2.5rem;
   }
   .header-cta {
     padding: 0.5rem 0.85rem;
@@ -373,6 +374,13 @@ a:hover {
   }
   .main-nav a {
     font-size: 0.9375rem;
+  }
+}
+
+/* Small phones (below about 370px): a slightly smaller logo keeps it on one row with the button */
+@media (max-width: 22.99em) {
+  .logo img {
+    height: 2.15rem;
   }
 }
 
@@ -1427,7 +1435,8 @@ mark.fill {
 }
 
 .footer-logo img {
-  width: 7.5rem;
+  width: auto;
+  height: 2.75rem;
 }
 
 .site-footer h2 {
