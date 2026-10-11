@@ -1117,7 +1117,8 @@ fieldset > .hint {
   color: var(--charcoal);
 }
 
-.faq .answer ul {
+.faq .answer ul,
+.faq .answer ol {
   margin: 0 0 1rem;
 }
 
