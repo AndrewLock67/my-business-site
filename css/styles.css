@@ -664,9 +664,10 @@ a:hover {
   text-wrap: balance;   /* "For orders of / 1–10 applications" instead of a lone word */
 }
 
-/* "$7.56 per application · Save 15%" */
+/* "Save 14%" line on the package cards, centered in the tile */
 .price-each {
   margin-bottom: 0.75rem;
+  text-align: center;
   color: var(--heading);
   font-weight: 600;
 }
