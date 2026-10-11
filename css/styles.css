@@ -858,6 +858,26 @@ a:hover {
   background: var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 0.65rem no-repeat;
 }
 
+/* A button and its guarantee line, centered (home page pricing section) */
+.cta-center {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.cta-center .guarantee {
+  justify-content: center;
+}
+
+/* Phones and tablets: a tidy list, centered as a group under the button */
+@media (max-width: 47.99em) {
+  .cta-center .guarantee {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 /* In the calculator: one promise per line */
 .calculator .guarantee {
   flex-direction: column;
