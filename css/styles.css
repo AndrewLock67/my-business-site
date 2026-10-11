@@ -29,7 +29,7 @@
   /* Spacing and shapes */
   --max-width: 72rem;    /* widest the content gets */
   --gutter: 1.25rem;     /* space at the left/right edges */
-  --section-space: clamp(3rem, 8vw, 5.5rem);
+  --section-space: clamp(2.25rem, 5vw, 3.75rem);
   --radius: 0.75rem;
   /* Photos: pale-blue block peeking out bottom-right, plus a faint shadow (CDC style) */
   --photo-shadow: 0.75rem 0.75rem 0 #DCE6F2, 0.75rem 0.75rem 1.5rem rgba(11, 37, 69, 0.12);
@@ -196,7 +196,7 @@ a:hover {
 }
 
 .section-intro {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
 /* Intro text stays a comfortable width; the heading line spans the full width */
@@ -400,7 +400,7 @@ a:hover {
 
 /* ===== 7. HERO (top section of each page) ===== */
 .hero {
-  padding-block: clamp(2.5rem, 7vw, 5rem);
+  padding-block: clamp(2rem, 5vw, 3.5rem);
 }
 
 .hero-grid {
@@ -430,7 +430,7 @@ a:hover {
    Label → headline → one sentence → buttons, with the photo beside them
    and the guarantee strip running underneath both. */
 .hero--home {
-  padding-block: clamp(3rem, 8vw, 6rem) clamp(2rem, 5vw, 3rem);
+  padding-block: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .hero--home .hero-copy > * {
@@ -557,8 +557,8 @@ a:hover {
 
 /* A second topic inside the same section, set apart with space and a thin line */
 .subsection {
-  margin-top: 3rem;
-  padding-top: 2.5rem;
+  margin-top: 2.25rem;
+  padding-top: 2rem;
   border-top: 1px solid #CBD5E1;   /* a shade darker than --border so it shows on soft gray */
 }
 
@@ -886,7 +886,7 @@ a:hover {
 
 /* Home hero: a strip across the full width, under the text and photo */
 .hero-trust {
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  margin-top: clamp(2rem, 4vw, 2.75rem);
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   gap: 0.75rem 2.5rem;
@@ -934,7 +934,7 @@ textarea {
 }
 
 textarea {
-  min-height: 9rem;
+  min-height: 7.5rem;
   resize: vertical;
 }
 
@@ -966,7 +966,7 @@ select {
 /* Each group of questions, with its title */
 fieldset {
   min-width: 0;   /* lets the group shrink to fit small phones */
-  margin: 0 0 2rem;
+  margin: 0 0 1.75rem;
   padding: 0 0 1rem;
   border: 0;
   border-bottom: 1px solid var(--border);
@@ -1339,7 +1339,7 @@ fieldset > .hint {
 
 /* Long policy pages: clear spacing between numbered sections */
 .policy h2 {
-  margin-top: 2.75rem;
+  margin-top: 2.25rem;
   font-size: 1.5rem;
 }
 
@@ -1407,7 +1407,7 @@ mark.fill {
 
 /* ===== 16. FOOTER ===== */
 .site-footer {
-  padding-block: 3rem 2rem;
+  padding-block: 2.5rem 1.5rem;
   background: var(--navy);
   border-top: 1px solid rgba(255, 255, 255, 0.18);   /* separates it from the navy band above */
   color: var(--white);
@@ -1463,7 +1463,7 @@ mark.fill {
 
 /* Bottom of the footer: the disclaimer, then the copyright line */
 .footer-bottom {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -1479,6 +1479,52 @@ mark.fill {
 
 @media (min-width: 40em) {
   .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+
+/* Phones: save scrolling by putting icons and step numbers beside the text
+   (instead of above it) and the two short footer link lists side by side */
+@media (max-width: 39.99em) {
+  .grid .card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    align-items: start;
+  }
+  .grid .card .card-icon {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+  .grid .card > :not(.card-icon) {
+    grid-column: 2;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    column-gap: 1rem;
+  }
+  .step::before {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+  .step > * {
+    grid-column: 2;
+  }
+
+}
+
+/* Footer link lists side by side only where they fit on one line each
+   (most phones); the smallest phones keep them stacked */
+@media (min-width: 23em) and (max-width: 39.99em) {
+  .footer-grid {
+    grid-template-columns: auto auto;
+    justify-content: start;
+    column-gap: 2.5rem;
+  }
+  .footer-grid > :first-child,
+  .footer-grid > :last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 
