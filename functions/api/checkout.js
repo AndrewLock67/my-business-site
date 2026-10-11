@@ -40,40 +40,6 @@ const reply = (data, status = 200) =>
     headers: { "Content-Type": "application/json", "Cache-Control": "no-store" }
   });
 
-/* Diagnostic (preview copies only, never the live site): open
-   <preview address>/api/checkout in a browser to see whether the key is
-   found and what Stripe says when creating a sample checkout. */
-const LIVE_HOSTS = ["jobappoffice.com", "www.jobappoffice.com", "my-business-site-9q6.pages.dev"];
-
-export async function onRequestGet({ request, env }) {
-  const host = new URL(request.url).hostname;
-  if (LIVE_HOSTS.includes(host)) return reply({ error: "Not found." }, 404);
-
-  const key = env.STRIPE_SECRET_KEY || "";
-  const report = {
-    keyFound: Boolean(key),
-    keyType: key.slice(0, 8).replace(/_[^_]*$/, "_") || "none",   // e.g. "rk_live_" (never the key itself)
-  };
-  if (!key) return reply(report);
-
-  const form = new URLSearchParams();
-  form.append("mode", "payment");
-  form.append("line_items[0][price]", PRICES.packages.kickstart);
-  form.append("line_items[0][quantity]", "1");
-  form.append("success_url", "https://jobappoffice.com/thank-you");
-  form.append("allow_promotion_codes", "true");
-  form.append("consent_collection[terms_of_service]", "required");
-  const stripe = await fetch("https://api.stripe.com/v1/checkout/sessions", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/x-www-form-urlencoded" },
-    body: form
-  });
-  const session = await stripe.json();
-  report.stripeStatus = stripe.status;
-  report.stripeResult = stripe.ok ? "Sample checkout created successfully" : (session.error && session.error.message);
-  return reply(report);
-}
-
 export async function onRequestPost({ request, env }) {
   const key = env.STRIPE_SECRET_KEY;
   if (!key) return reply({ error: "Checkout isn't set up yet." }, 500);
