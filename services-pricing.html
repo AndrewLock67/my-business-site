@@ -20,7 +20,7 @@
   <link rel="icon" href="assets/img/favicon.svg?v=2" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=20">
+  <link rel="stylesheet" href="css/styles.css?v=21">
 </head>
 <body>
 
@@ -108,8 +108,10 @@
 
     <!-- ===== PACKAGES + ADD-ONS =====
          Prices also appear in index.html (home pricing preview), faq-contact.html (FAQ) and refunds.html (examples).
-         Each "Choose" button links to that package's Stripe Payment Link (fixed quantity, add-ons offered at checkout).
-         These are LIVE Stripe links (real payments). -->
+         Each card lets customers tick add-ons; js/checkout.js sends the choice to /api/checkout
+         (functions/api/checkout.js), which builds the Stripe checkout with the official prices.
+         The button's href is that package's LIVE Stripe Payment Link: the backup if the script or checkout fails.
+         The +$ amounts and data-price values are for display only; Stripe charges the prices in functions/api/checkout.js. -->
     <section class="section" id="packages" aria-labelledby="packages-title">
       <div class="container">
         <div class="section-intro">
@@ -118,29 +120,50 @@
         </div>
 
         <ul class="grid grid--3 price-grid">
-          <li class="price-card">
+          <li class="price-card" data-package="kickstart" data-base="80">
             <h3>Kickstart</h3>
             <p class="price">$80</p>
             <p class="price-range">10 tailored applications</p>
             <p class="price-each"></p><!-- left empty on purpose: keeps the rows lined up with the other cards -->
             <p>A focused start for a targeted search.</p>
-            <a class="btn btn--outline" href="https://buy.stripe.com/28E14fboD0mG71v9Tx5ZC08">Choose Kickstart</a>
+            <fieldset class="addon-picks" hidden>
+              <legend>Add to your order</legend>
+              <label><input type="checkbox" value="cover-letters" data-price="19"> Tailored cover letters <span>+$19</span></label>
+              <label><input type="checkbox" value="resume" data-price="49"> Resume Refresh <span>+$49</span></label>
+              <label><input type="checkbox" value="linkedin" data-price="49"> LinkedIn Refresh <span>+$49</span></label>
+            </fieldset>
+            <p class="bundle-total" hidden aria-live="polite">Total: <strong>$80</strong></p>
+            <a class="btn btn--outline" href="https://buy.stripe.com/28E14fboD0mG71v9Tx5ZC08" data-checkout>Choose Kickstart</a>
           </li>
-          <li class="price-card">
+          <li class="price-card" data-package="sprint" data-base="169">
             <h3>Sprint <span class="badge">Most popular</span></h3>
             <p class="price">$169</p>
             <p class="price-range">25 tailored applications</p>
             <p class="price-each">Save 15%</p>
             <p>The right pace for an active job search.</p>
-            <a class="btn" href="https://buy.stripe.com/aFa5kvakzb1k1Hb1n15ZC07">Choose Sprint</a>
+            <fieldset class="addon-picks" hidden>
+              <legend>Add to your order</legend>
+              <label><input type="checkbox" value="cover-letters" data-price="39"> Tailored cover letters <span>+$39</span></label>
+              <label><input type="checkbox" value="resume" data-price="49"> Resume Refresh <span>+$49</span></label>
+              <label><input type="checkbox" value="linkedin" data-price="49"> LinkedIn Refresh <span>+$49</span></label>
+            </fieldset>
+            <p class="bundle-total" hidden aria-live="polite">Total: <strong>$169</strong></p>
+            <a class="btn" href="https://buy.stripe.com/aFa5kvakzb1k1Hb1n15ZC07" data-checkout>Choose Sprint</a>
           </li>
-          <li class="price-card">
+          <li class="price-card" data-package="executive" data-base="299">
             <h3>Executive</h3>
             <p class="price">$299</p>
             <p class="price-range">50 tailored applications</p>
             <p class="price-each">Save 25%</p>
             <p>Maximum reach for a broad or competitive search.</p>
-            <a class="btn btn--outline" href="https://buy.stripe.com/dRm6oz8cr0mGgC56Hl5ZC06">Choose Executive</a>
+            <fieldset class="addon-picks" hidden>
+              <legend>Add to your order</legend>
+              <label><input type="checkbox" value="cover-letters" data-price="69"> Tailored cover letters <span>+$69</span></label>
+              <label><input type="checkbox" value="resume" data-price="49"> Resume Refresh <span>+$49</span></label>
+              <label><input type="checkbox" value="linkedin" data-price="49"> LinkedIn Refresh <span>+$49</span></label>
+            </fieldset>
+            <p class="bundle-total" hidden aria-live="polite">Total: <strong>$299</strong></p>
+            <a class="btn btn--outline" href="https://buy.stripe.com/dRm6oz8cr0mGgC56Hl5ZC06" data-checkout>Choose Executive</a>
           </li>
         </ul>
 
@@ -149,11 +172,11 @@
           <p class="quote-note">Applying for more than 50 roles? <a href="faq-contact.html#contact">Contact us for a custom quote</a>.</p>
         </div>
 
-        <!-- ===== ADD-ONS (offered at Stripe checkout) ===== -->
+        <!-- ===== ADD-ONS (chosen on the package cards above) ===== -->
         <div class="subsection" id="add-ons">
           <div class="section-intro">
-            <h3>Add to Your Order</h3>
-            <p>Choose any of these at checkout.</p>
+            <h3>What the Add-ons Include</h3>
+            <p>Add any of these to your package using the options on each card above.</p>
           </div>
           <ul class="grid grid--3">
             <li class="card">
@@ -286,5 +309,6 @@
   </footer>
   <!-- ===== FOOTER END ===== -->
 
+  <script src="js/checkout.js?v=1" defer></script>
 </body>
 </html>
