@@ -664,7 +664,7 @@ a:hover {
   text-wrap: balance;   /* "For orders of / 1–10 applications" instead of a lone word */
 }
 
-/* "Save 14%" line on the package cards */
+/* "Save 15%" line on the package cards */
 .price-each {
   margin-bottom: 0.75rem;
   color: var(--heading);
